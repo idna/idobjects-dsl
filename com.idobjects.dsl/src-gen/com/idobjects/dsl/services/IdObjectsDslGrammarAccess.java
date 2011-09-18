@@ -128,50 +128,57 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_0_0 = (Group)cAlternatives_0.eContents().get(0);
 		private final Keyword cListKeyword_0_0_0 = (Keyword)cGroup_0_0.eContents().get(0);
 		private final Assignment cListDestinationAssignment_0_0_1 = (Assignment)cGroup_0_0.eContents().get(1);
-		private final RuleCall cListDestinationIDTerminalRuleCall_0_0_1_0 = (RuleCall)cListDestinationAssignment_0_0_1.eContents().get(0);
+		private final CrossReference cListDestinationEntityCrossReference_0_0_1_0 = (CrossReference)cListDestinationAssignment_0_0_1.eContents().get(0);
+		private final RuleCall cListDestinationEntityIDTerminalRuleCall_0_0_1_0_1 = (RuleCall)cListDestinationEntityCrossReference_0_0_1_0.eContents().get(1);
 		private final Keyword cRightSquareBracketKeyword_0_0_2 = (Keyword)cGroup_0_0.eContents().get(2);
 		private final Assignment cSingleDestinationAssignment_0_1 = (Assignment)cAlternatives_0.eContents().get(1);
-		private final RuleCall cSingleDestinationIDTerminalRuleCall_0_1_0 = (RuleCall)cSingleDestinationAssignment_0_1.eContents().get(0);
+		private final CrossReference cSingleDestinationEntityCrossReference_0_1_0 = (CrossReference)cSingleDestinationAssignment_0_1.eContents().get(0);
+		private final RuleCall cSingleDestinationEntityIDTerminalRuleCall_0_1_0_1 = (RuleCall)cSingleDestinationEntityCrossReference_0_1_0.eContents().get(1);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cInverseKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cInverseNameAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cInverseNameEntityReferenceCrossReference_2_1_0 = (CrossReference)cInverseNameAssignment_2_1.eContents().get(0);
-		private final RuleCall cInverseNameEntityReferenceIDTerminalRuleCall_2_1_0_1 = (RuleCall)cInverseNameEntityReferenceCrossReference_2_1_0.eContents().get(1);
+		private final RuleCall cInverseNameIDTerminalRuleCall_2_1_0 = (RuleCall)cInverseNameAssignment_2_1.eContents().get(0);
 		private final Keyword cRightSquareBracketKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//EntityReference:
-		//	("List[" listDestination=ID "]" | singleDestination=ID) name=ID ("[inverse=" inverseName=[EntityReference] "]")? ";";
+		//	("List[" listDestination=[Entity] "]" | singleDestination=[Entity]) name=ID ("[inverse=" inverseName=ID "]")? ";";
 		public ParserRule getRule() { return rule; }
 
-		//("List[" listDestination=ID "]" | singleDestination=ID) name=ID ("[inverse=" inverseName=[EntityReference] "]")? ";"
+		//("List[" listDestination=[Entity] "]" | singleDestination=[Entity]) name=ID ("[inverse=" inverseName=ID "]")? ";"
 		public Group getGroup() { return cGroup; }
 
-		//"List[" listDestination=ID "]" | singleDestination=ID
+		//"List[" listDestination=[Entity] "]" | singleDestination=[Entity]
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 
-		//"List[" listDestination=ID "]"
+		//"List[" listDestination=[Entity] "]"
 		public Group getGroup_0_0() { return cGroup_0_0; }
 
 		//"List["
 		public Keyword getListKeyword_0_0_0() { return cListKeyword_0_0_0; }
 
-		//listDestination=ID
+		//listDestination=[Entity]
 		public Assignment getListDestinationAssignment_0_0_1() { return cListDestinationAssignment_0_0_1; }
 
+		//[Entity]
+		public CrossReference getListDestinationEntityCrossReference_0_0_1_0() { return cListDestinationEntityCrossReference_0_0_1_0; }
+
 		//ID
-		public RuleCall getListDestinationIDTerminalRuleCall_0_0_1_0() { return cListDestinationIDTerminalRuleCall_0_0_1_0; }
+		public RuleCall getListDestinationEntityIDTerminalRuleCall_0_0_1_0_1() { return cListDestinationEntityIDTerminalRuleCall_0_0_1_0_1; }
 
 		//"]"
 		public Keyword getRightSquareBracketKeyword_0_0_2() { return cRightSquareBracketKeyword_0_0_2; }
 
-		//singleDestination=ID
+		//singleDestination=[Entity]
 		public Assignment getSingleDestinationAssignment_0_1() { return cSingleDestinationAssignment_0_1; }
 
+		//[Entity]
+		public CrossReference getSingleDestinationEntityCrossReference_0_1_0() { return cSingleDestinationEntityCrossReference_0_1_0; }
+
 		//ID
-		public RuleCall getSingleDestinationIDTerminalRuleCall_0_1_0() { return cSingleDestinationIDTerminalRuleCall_0_1_0; }
+		public RuleCall getSingleDestinationEntityIDTerminalRuleCall_0_1_0_1() { return cSingleDestinationEntityIDTerminalRuleCall_0_1_0_1; }
 
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -179,20 +186,17 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
-		//("[inverse=" inverseName=[EntityReference] "]")?
+		//("[inverse=" inverseName=ID "]")?
 		public Group getGroup_2() { return cGroup_2; }
 
 		//"[inverse="
 		public Keyword getInverseKeyword_2_0() { return cInverseKeyword_2_0; }
 
-		//inverseName=[EntityReference]
+		//inverseName=ID
 		public Assignment getInverseNameAssignment_2_1() { return cInverseNameAssignment_2_1; }
 
-		//[EntityReference]
-		public CrossReference getInverseNameEntityReferenceCrossReference_2_1_0() { return cInverseNameEntityReferenceCrossReference_2_1_0; }
-
 		//ID
-		public RuleCall getInverseNameEntityReferenceIDTerminalRuleCall_2_1_0_1() { return cInverseNameEntityReferenceIDTerminalRuleCall_2_1_0_1; }
+		public RuleCall getInverseNameIDTerminalRuleCall_2_1_0() { return cInverseNameIDTerminalRuleCall_2_1_0; }
 
 		//"]"
 		public Keyword getRightSquareBracketKeyword_2_2() { return cRightSquareBracketKeyword_2_2; }
@@ -466,7 +470,7 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//EntityReference:
-	//	("List[" listDestination=ID "]" | singleDestination=ID) name=ID ("[inverse=" inverseName=[EntityReference] "]")? ";";
+	//	("List[" listDestination=[Entity] "]" | singleDestination=[Entity]) name=ID ("[inverse=" inverseName=ID "]")? ";";
 	public EntityReferenceElements getEntityReferenceAccess() {
 		return (pEntityReference != null) ? pEntityReference : (pEntityReference = new EntityReferenceElements());
 	}

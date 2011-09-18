@@ -29,56 +29,56 @@ import org.eclipse.emf.ecore.EObject;
 public interface EntityReference extends EObject
 {
   /**
-   * Returns the value of the '<em><b>List Destination</b></em>' attribute.
+   * Returns the value of the '<em><b>List Destination</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>List Destination</em>' attribute isn't clear,
+   * If the meaning of the '<em>List Destination</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>List Destination</em>' attribute.
-   * @see #setListDestination(String)
+   * @return the value of the '<em>List Destination</em>' reference.
+   * @see #setListDestination(Entity)
    * @see com.idobjects.dsl.idObjectsDsl.IdObjectsDslPackage#getEntityReference_ListDestination()
    * @model
    * @generated
    */
-  String getListDestination();
+  Entity getListDestination();
 
   /**
-   * Sets the value of the '{@link com.idobjects.dsl.idObjectsDsl.EntityReference#getListDestination <em>List Destination</em>}' attribute.
+   * Sets the value of the '{@link com.idobjects.dsl.idObjectsDsl.EntityReference#getListDestination <em>List Destination</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>List Destination</em>' attribute.
+   * @param value the new value of the '<em>List Destination</em>' reference.
    * @see #getListDestination()
    * @generated
    */
-  void setListDestination(String value);
+  void setListDestination(Entity value);
 
   /**
-   * Returns the value of the '<em><b>Single Destination</b></em>' attribute.
+   * Returns the value of the '<em><b>Single Destination</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Single Destination</em>' attribute isn't clear,
+   * If the meaning of the '<em>Single Destination</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Single Destination</em>' attribute.
-   * @see #setSingleDestination(String)
+   * @return the value of the '<em>Single Destination</em>' reference.
+   * @see #setSingleDestination(Entity)
    * @see com.idobjects.dsl.idObjectsDsl.IdObjectsDslPackage#getEntityReference_SingleDestination()
    * @model
    * @generated
    */
-  String getSingleDestination();
+  Entity getSingleDestination();
 
   /**
-   * Sets the value of the '{@link com.idobjects.dsl.idObjectsDsl.EntityReference#getSingleDestination <em>Single Destination</em>}' attribute.
+   * Sets the value of the '{@link com.idobjects.dsl.idObjectsDsl.EntityReference#getSingleDestination <em>Single Destination</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Single Destination</em>' attribute.
+   * @param value the new value of the '<em>Single Destination</em>' reference.
    * @see #getSingleDestination()
    * @generated
    */
-  void setSingleDestination(String value);
+  void setSingleDestination(Entity value);
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -107,29 +107,29 @@ public interface EntityReference extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Inverse Name</b></em>' reference.
+   * Returns the value of the '<em><b>Inverse Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Inverse Name</em>' reference isn't clear,
+   * If the meaning of the '<em>Inverse Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Inverse Name</em>' reference.
-   * @see #setInverseName(EntityReference)
+   * @return the value of the '<em>Inverse Name</em>' attribute.
+   * @see #setInverseName(String)
    * @see com.idobjects.dsl.idObjectsDsl.IdObjectsDslPackage#getEntityReference_InverseName()
    * @model
    * @generated
    */
-  EntityReference getInverseName();
+  String getInverseName();
 
   /**
-   * Sets the value of the '{@link com.idobjects.dsl.idObjectsDsl.EntityReference#getInverseName <em>Inverse Name</em>}' reference.
+   * Sets the value of the '{@link com.idobjects.dsl.idObjectsDsl.EntityReference#getInverseName <em>Inverse Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Inverse Name</em>' reference.
+   * @param value the new value of the '<em>Inverse Name</em>' attribute.
    * @see #getInverseName()
    * @generated
    */
-  void setInverseName(EntityReference value);
+  void setInverseName(String value);
 
 } // EntityReference

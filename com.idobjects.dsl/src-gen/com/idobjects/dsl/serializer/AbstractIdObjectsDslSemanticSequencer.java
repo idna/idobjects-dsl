@@ -133,7 +133,7 @@ public class AbstractIdObjectsDslSemanticSequencer extends AbstractSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     ((listDestination=ID | singleDestination=ID) name=ID inverseName=[EntityReference|ID]?)
+	 *     ((listDestination=[Entity|ID] | singleDestination=[Entity|ID]) name=ID inverseName=ID?)
 	 *
 	 * Features:
 	 *    listDestination[0, 1]

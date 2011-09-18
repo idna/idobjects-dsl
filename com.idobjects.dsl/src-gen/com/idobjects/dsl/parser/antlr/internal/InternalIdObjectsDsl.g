@@ -278,20 +278,15 @@ ruleEntityReference returns [EObject current=null]
     }
 (
 (
-		lv_listDestination_1_0=RULE_ID
 		{
-			newLeafNode(lv_listDestination_1_0, grammarAccess.getEntityReferenceAccess().getListDestinationIDTerminalRuleCall_0_0_1_0()); 
-		}
-		{
-	        if ($current==null) {
+			if ($current==null) {
 	            $current = createModelElement(grammarAccess.getEntityReferenceRule());
 	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"listDestination",
-        		lv_listDestination_1_0, 
-        		"ID");
-	    }
+        }
+	otherlv_1=RULE_ID
+	{
+		newLeafNode(otherlv_1, grammarAccess.getEntityReferenceAccess().getListDestinationEntityCrossReference_0_0_1_0()); 
+	}
 
 )
 )	otherlv_2=']' 
@@ -301,20 +296,15 @@ ruleEntityReference returns [EObject current=null]
 )
     |(
 (
-		lv_singleDestination_3_0=RULE_ID
 		{
-			newLeafNode(lv_singleDestination_3_0, grammarAccess.getEntityReferenceAccess().getSingleDestinationIDTerminalRuleCall_0_1_0()); 
-		}
-		{
-	        if ($current==null) {
+			if ($current==null) {
 	            $current = createModelElement(grammarAccess.getEntityReferenceRule());
 	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"singleDestination",
-        		lv_singleDestination_3_0, 
-        		"ID");
-	    }
+        }
+	otherlv_3=RULE_ID
+	{
+		newLeafNode(otherlv_3, grammarAccess.getEntityReferenceAccess().getSingleDestinationEntityCrossReference_0_1_0()); 
+	}
 
 )
 ))(
@@ -341,15 +331,20 @@ ruleEntityReference returns [EObject current=null]
     }
 (
 (
+		lv_inverseName_6_0=RULE_ID
 		{
-			if ($current==null) {
+			newLeafNode(lv_inverseName_6_0, grammarAccess.getEntityReferenceAccess().getInverseNameIDTerminalRuleCall_2_1_0()); 
+		}
+		{
+	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getEntityReferenceRule());
 	        }
-        }
-	otherlv_6=RULE_ID
-	{
-		newLeafNode(otherlv_6, grammarAccess.getEntityReferenceAccess().getInverseNameEntityReferenceCrossReference_2_1_0()); 
-	}
+       		setWithLastConsumed(
+       			$current, 
+       			"inverseName",
+        		lv_inverseName_6_0, 
+        		"ID");
+	    }
 
 )
 )	otherlv_7=']' 

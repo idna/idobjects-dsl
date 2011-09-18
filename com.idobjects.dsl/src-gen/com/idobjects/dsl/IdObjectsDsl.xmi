@@ -56,12 +56,22 @@
           <elements xsi:type="xtext:Group">
             <elements xsi:type="xtext:Keyword" value="List["/>
             <elements xsi:type="xtext:Assignment" feature="listDestination" operator="=">
-              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.0">
+                  <classifier xsi:type="ecore:EClass" href="http://www.idobjects.com/IdObjectsDsl#//Entity"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+              </terminal>
             </elements>
             <elements xsi:type="xtext:Keyword" value="]"/>
           </elements>
           <elements xsi:type="xtext:Assignment" feature="singleDestination" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="/0/@metamodelDeclarations.0">
+                <classifier xsi:type="ecore:EClass" href="http://www.idobjects.com/IdObjectsDsl#//Entity"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+            </terminal>
           </elements>
         </elements>
         <elements xsi:type="xtext:Assignment" feature="name" operator="=">
@@ -70,12 +80,7 @@
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="[inverse="/>
           <elements xsi:type="xtext:Assignment" feature="inverseName" operator="=">
-            <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.0">
-                <classifier xsi:type="ecore:EClass" href="http://www.idobjects.com/IdObjectsDsl#//EntityReference"/>
-              </type>
-              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
-            </terminal>
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </elements>
           <elements xsi:type="xtext:Keyword" value="]"/>
         </elements>

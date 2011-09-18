@@ -181,7 +181,7 @@ public interface IdObjectsDslPackage extends EPackage
   int ENTITY_REFERENCE = 3;
 
   /**
-   * The feature id for the '<em><b>List Destination</b></em>' attribute.
+   * The feature id for the '<em><b>List Destination</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -190,7 +190,7 @@ public interface IdObjectsDslPackage extends EPackage
   int ENTITY_REFERENCE__LIST_DESTINATION = 0;
 
   /**
-   * The feature id for the '<em><b>Single Destination</b></em>' attribute.
+   * The feature id for the '<em><b>Single Destination</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -208,7 +208,7 @@ public interface IdObjectsDslPackage extends EPackage
   int ENTITY_REFERENCE__NAME = 2;
 
   /**
-   * The feature id for the '<em><b>Inverse Name</b></em>' reference.
+   * The feature id for the '<em><b>Inverse Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -398,26 +398,26 @@ public interface IdObjectsDslPackage extends EPackage
   EClass getEntityReference();
 
   /**
-   * Returns the meta object for the attribute '{@link com.idobjects.dsl.idObjectsDsl.EntityReference#getListDestination <em>List Destination</em>}'.
+   * Returns the meta object for the reference '{@link com.idobjects.dsl.idObjectsDsl.EntityReference#getListDestination <em>List Destination</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>List Destination</em>'.
+   * @return the meta object for the reference '<em>List Destination</em>'.
    * @see com.idobjects.dsl.idObjectsDsl.EntityReference#getListDestination()
    * @see #getEntityReference()
    * @generated
    */
-  EAttribute getEntityReference_ListDestination();
+  EReference getEntityReference_ListDestination();
 
   /**
-   * Returns the meta object for the attribute '{@link com.idobjects.dsl.idObjectsDsl.EntityReference#getSingleDestination <em>Single Destination</em>}'.
+   * Returns the meta object for the reference '{@link com.idobjects.dsl.idObjectsDsl.EntityReference#getSingleDestination <em>Single Destination</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Single Destination</em>'.
+   * @return the meta object for the reference '<em>Single Destination</em>'.
    * @see com.idobjects.dsl.idObjectsDsl.EntityReference#getSingleDestination()
    * @see #getEntityReference()
    * @generated
    */
-  EAttribute getEntityReference_SingleDestination();
+  EReference getEntityReference_SingleDestination();
 
   /**
    * Returns the meta object for the attribute '{@link com.idobjects.dsl.idObjectsDsl.EntityReference#getName <em>Name</em>}'.
@@ -431,15 +431,15 @@ public interface IdObjectsDslPackage extends EPackage
   EAttribute getEntityReference_Name();
 
   /**
-   * Returns the meta object for the reference '{@link com.idobjects.dsl.idObjectsDsl.EntityReference#getInverseName <em>Inverse Name</em>}'.
+   * Returns the meta object for the attribute '{@link com.idobjects.dsl.idObjectsDsl.EntityReference#getInverseName <em>Inverse Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Inverse Name</em>'.
+   * @return the meta object for the attribute '<em>Inverse Name</em>'.
    * @see com.idobjects.dsl.idObjectsDsl.EntityReference#getInverseName()
    * @see #getEntityReference()
    * @generated
    */
-  EReference getEntityReference_InverseName();
+  EAttribute getEntityReference_InverseName();
 
   /**
    * Returns the meta object for class '{@link com.idobjects.dsl.idObjectsDsl.AbstractReference <em>Abstract Reference</em>}'.
@@ -606,20 +606,20 @@ public interface IdObjectsDslPackage extends EPackage
     EClass ENTITY_REFERENCE = eINSTANCE.getEntityReference();
 
     /**
-     * The meta object literal for the '<em><b>List Destination</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>List Destination</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ENTITY_REFERENCE__LIST_DESTINATION = eINSTANCE.getEntityReference_ListDestination();
+    EReference ENTITY_REFERENCE__LIST_DESTINATION = eINSTANCE.getEntityReference_ListDestination();
 
     /**
-     * The meta object literal for the '<em><b>Single Destination</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Single Destination</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ENTITY_REFERENCE__SINGLE_DESTINATION = eINSTANCE.getEntityReference_SingleDestination();
+    EReference ENTITY_REFERENCE__SINGLE_DESTINATION = eINSTANCE.getEntityReference_SingleDestination();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -630,12 +630,12 @@ public interface IdObjectsDslPackage extends EPackage
     EAttribute ENTITY_REFERENCE__NAME = eINSTANCE.getEntityReference_Name();
 
     /**
-     * The meta object literal for the '<em><b>Inverse Name</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Inverse Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ENTITY_REFERENCE__INVERSE_NAME = eINSTANCE.getEntityReference_InverseName();
+    EAttribute ENTITY_REFERENCE__INVERSE_NAME = eINSTANCE.getEntityReference_InverseName();
 
     /**
      * The meta object literal for the '{@link com.idobjects.dsl.idObjectsDsl.impl.AbstractReferenceImpl <em>Abstract Reference</em>}' class.

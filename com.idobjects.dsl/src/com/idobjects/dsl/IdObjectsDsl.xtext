@@ -18,13 +18,13 @@ Entity:
 ;
 
 EntityReference:
-	('List['listDestination=ID ']' 
+	('List['listDestination=[Entity] ']' 
 	|
-	singleDestination=ID) 
+	singleDestination=[Entity]) 
 	
 	name=ID
 	
-	('[inverse='inverseName=[EntityReference]']')?
+	('[inverse='inverseName=ID']')?
 	
 	';' 
 ;

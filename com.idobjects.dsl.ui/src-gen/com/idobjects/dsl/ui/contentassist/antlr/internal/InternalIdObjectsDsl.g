@@ -1525,8 +1525,12 @@ rule__EntityReference__ListDestinationAssignment_0_0_1
     }
 :
 (
-{ before(grammarAccess.getEntityReferenceAccess().getListDestinationIDTerminalRuleCall_0_0_1_0()); }
-	RULE_ID{ after(grammarAccess.getEntityReferenceAccess().getListDestinationIDTerminalRuleCall_0_0_1_0()); }
+{ before(grammarAccess.getEntityReferenceAccess().getListDestinationEntityCrossReference_0_0_1_0()); }
+(
+{ before(grammarAccess.getEntityReferenceAccess().getListDestinationEntityIDTerminalRuleCall_0_0_1_0_1()); }
+	RULE_ID{ after(grammarAccess.getEntityReferenceAccess().getListDestinationEntityIDTerminalRuleCall_0_0_1_0_1()); }
+)
+{ after(grammarAccess.getEntityReferenceAccess().getListDestinationEntityCrossReference_0_0_1_0()); }
 )
 
 ;
@@ -1540,8 +1544,12 @@ rule__EntityReference__SingleDestinationAssignment_0_1
     }
 :
 (
-{ before(grammarAccess.getEntityReferenceAccess().getSingleDestinationIDTerminalRuleCall_0_1_0()); }
-	RULE_ID{ after(grammarAccess.getEntityReferenceAccess().getSingleDestinationIDTerminalRuleCall_0_1_0()); }
+{ before(grammarAccess.getEntityReferenceAccess().getSingleDestinationEntityCrossReference_0_1_0()); }
+(
+{ before(grammarAccess.getEntityReferenceAccess().getSingleDestinationEntityIDTerminalRuleCall_0_1_0_1()); }
+	RULE_ID{ after(grammarAccess.getEntityReferenceAccess().getSingleDestinationEntityIDTerminalRuleCall_0_1_0_1()); }
+)
+{ after(grammarAccess.getEntityReferenceAccess().getSingleDestinationEntityCrossReference_0_1_0()); }
 )
 
 ;
@@ -1570,12 +1578,8 @@ rule__EntityReference__InverseNameAssignment_2_1
     }
 :
 (
-{ before(grammarAccess.getEntityReferenceAccess().getInverseNameEntityReferenceCrossReference_2_1_0()); }
-(
-{ before(grammarAccess.getEntityReferenceAccess().getInverseNameEntityReferenceIDTerminalRuleCall_2_1_0_1()); }
-	RULE_ID{ after(grammarAccess.getEntityReferenceAccess().getInverseNameEntityReferenceIDTerminalRuleCall_2_1_0_1()); }
-)
-{ after(grammarAccess.getEntityReferenceAccess().getInverseNameEntityReferenceCrossReference_2_1_0()); }
+{ before(grammarAccess.getEntityReferenceAccess().getInverseNameIDTerminalRuleCall_2_1_0()); }
+	RULE_ID{ after(grammarAccess.getEntityReferenceAccess().getInverseNameIDTerminalRuleCall_2_1_0()); }
 )
 
 ;

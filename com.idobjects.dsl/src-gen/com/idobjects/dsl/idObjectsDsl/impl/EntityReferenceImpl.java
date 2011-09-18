@@ -5,6 +5,7 @@
  */
 package com.idobjects.dsl.idObjectsDsl.impl;
 
+import com.idobjects.dsl.idObjectsDsl.Entity;
 import com.idobjects.dsl.idObjectsDsl.EntityReference;
 import com.idobjects.dsl.idObjectsDsl.IdObjectsDslPackage;
 
@@ -35,44 +36,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class EntityReferenceImpl extends MinimalEObjectImpl.Container implements EntityReference
 {
   /**
-   * The default value of the '{@link #getListDestination() <em>List Destination</em>}' attribute.
+   * The cached value of the '{@link #getListDestination() <em>List Destination</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getListDestination()
    * @generated
    * @ordered
    */
-  protected static final String LIST_DESTINATION_EDEFAULT = null;
+  protected Entity listDestination;
 
   /**
-   * The cached value of the '{@link #getListDestination() <em>List Destination</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getListDestination()
-   * @generated
-   * @ordered
-   */
-  protected String listDestination = LIST_DESTINATION_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getSingleDestination() <em>Single Destination</em>}' attribute.
+   * The cached value of the '{@link #getSingleDestination() <em>Single Destination</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getSingleDestination()
    * @generated
    * @ordered
    */
-  protected static final String SINGLE_DESTINATION_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getSingleDestination() <em>Single Destination</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSingleDestination()
-   * @generated
-   * @ordered
-   */
-  protected String singleDestination = SINGLE_DESTINATION_EDEFAULT;
+  protected Entity singleDestination;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -95,14 +76,24 @@ public class EntityReferenceImpl extends MinimalEObjectImpl.Container implements
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getInverseName() <em>Inverse Name</em>}' reference.
+   * The default value of the '{@link #getInverseName() <em>Inverse Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getInverseName()
    * @generated
    * @ordered
    */
-  protected EntityReference inverseName;
+  protected static final String INVERSE_NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getInverseName() <em>Inverse Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInverseName()
+   * @generated
+   * @ordered
+   */
+  protected String inverseName = INVERSE_NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -130,7 +121,27 @@ public class EntityReferenceImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getListDestination()
+  public Entity getListDestination()
+  {
+    if (listDestination != null && listDestination.eIsProxy())
+    {
+      InternalEObject oldListDestination = (InternalEObject)listDestination;
+      listDestination = (Entity)eResolveProxy(oldListDestination);
+      if (listDestination != oldListDestination)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, IdObjectsDslPackage.ENTITY_REFERENCE__LIST_DESTINATION, oldListDestination, listDestination));
+      }
+    }
+    return listDestination;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Entity basicGetListDestination()
   {
     return listDestination;
   }
@@ -140,9 +151,9 @@ public class EntityReferenceImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setListDestination(String newListDestination)
+  public void setListDestination(Entity newListDestination)
   {
-    String oldListDestination = listDestination;
+    Entity oldListDestination = listDestination;
     listDestination = newListDestination;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, IdObjectsDslPackage.ENTITY_REFERENCE__LIST_DESTINATION, oldListDestination, listDestination));
@@ -153,7 +164,27 @@ public class EntityReferenceImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getSingleDestination()
+  public Entity getSingleDestination()
+  {
+    if (singleDestination != null && singleDestination.eIsProxy())
+    {
+      InternalEObject oldSingleDestination = (InternalEObject)singleDestination;
+      singleDestination = (Entity)eResolveProxy(oldSingleDestination);
+      if (singleDestination != oldSingleDestination)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, IdObjectsDslPackage.ENTITY_REFERENCE__SINGLE_DESTINATION, oldSingleDestination, singleDestination));
+      }
+    }
+    return singleDestination;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Entity basicGetSingleDestination()
   {
     return singleDestination;
   }
@@ -163,9 +194,9 @@ public class EntityReferenceImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSingleDestination(String newSingleDestination)
+  public void setSingleDestination(Entity newSingleDestination)
   {
-    String oldSingleDestination = singleDestination;
+    Entity oldSingleDestination = singleDestination;
     singleDestination = newSingleDestination;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, IdObjectsDslPackage.ENTITY_REFERENCE__SINGLE_DESTINATION, oldSingleDestination, singleDestination));
@@ -199,27 +230,7 @@ public class EntityReferenceImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EntityReference getInverseName()
-  {
-    if (inverseName != null && inverseName.eIsProxy())
-    {
-      InternalEObject oldInverseName = (InternalEObject)inverseName;
-      inverseName = (EntityReference)eResolveProxy(oldInverseName);
-      if (inverseName != oldInverseName)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, IdObjectsDslPackage.ENTITY_REFERENCE__INVERSE_NAME, oldInverseName, inverseName));
-      }
-    }
-    return inverseName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EntityReference basicGetInverseName()
+  public String getInverseName()
   {
     return inverseName;
   }
@@ -229,9 +240,9 @@ public class EntityReferenceImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setInverseName(EntityReference newInverseName)
+  public void setInverseName(String newInverseName)
   {
-    EntityReference oldInverseName = inverseName;
+    String oldInverseName = inverseName;
     inverseName = newInverseName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, IdObjectsDslPackage.ENTITY_REFERENCE__INVERSE_NAME, oldInverseName, inverseName));
@@ -248,14 +259,15 @@ public class EntityReferenceImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case IdObjectsDslPackage.ENTITY_REFERENCE__LIST_DESTINATION:
-        return getListDestination();
+        if (resolve) return getListDestination();
+        return basicGetListDestination();
       case IdObjectsDslPackage.ENTITY_REFERENCE__SINGLE_DESTINATION:
-        return getSingleDestination();
+        if (resolve) return getSingleDestination();
+        return basicGetSingleDestination();
       case IdObjectsDslPackage.ENTITY_REFERENCE__NAME:
         return getName();
       case IdObjectsDslPackage.ENTITY_REFERENCE__INVERSE_NAME:
-        if (resolve) return getInverseName();
-        return basicGetInverseName();
+        return getInverseName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -271,16 +283,16 @@ public class EntityReferenceImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case IdObjectsDslPackage.ENTITY_REFERENCE__LIST_DESTINATION:
-        setListDestination((String)newValue);
+        setListDestination((Entity)newValue);
         return;
       case IdObjectsDslPackage.ENTITY_REFERENCE__SINGLE_DESTINATION:
-        setSingleDestination((String)newValue);
+        setSingleDestination((Entity)newValue);
         return;
       case IdObjectsDslPackage.ENTITY_REFERENCE__NAME:
         setName((String)newValue);
         return;
       case IdObjectsDslPackage.ENTITY_REFERENCE__INVERSE_NAME:
-        setInverseName((EntityReference)newValue);
+        setInverseName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -297,16 +309,16 @@ public class EntityReferenceImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case IdObjectsDslPackage.ENTITY_REFERENCE__LIST_DESTINATION:
-        setListDestination(LIST_DESTINATION_EDEFAULT);
+        setListDestination((Entity)null);
         return;
       case IdObjectsDslPackage.ENTITY_REFERENCE__SINGLE_DESTINATION:
-        setSingleDestination(SINGLE_DESTINATION_EDEFAULT);
+        setSingleDestination((Entity)null);
         return;
       case IdObjectsDslPackage.ENTITY_REFERENCE__NAME:
         setName(NAME_EDEFAULT);
         return;
       case IdObjectsDslPackage.ENTITY_REFERENCE__INVERSE_NAME:
-        setInverseName((EntityReference)null);
+        setInverseName(INVERSE_NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -323,13 +335,13 @@ public class EntityReferenceImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case IdObjectsDslPackage.ENTITY_REFERENCE__LIST_DESTINATION:
-        return LIST_DESTINATION_EDEFAULT == null ? listDestination != null : !LIST_DESTINATION_EDEFAULT.equals(listDestination);
+        return listDestination != null;
       case IdObjectsDslPackage.ENTITY_REFERENCE__SINGLE_DESTINATION:
-        return SINGLE_DESTINATION_EDEFAULT == null ? singleDestination != null : !SINGLE_DESTINATION_EDEFAULT.equals(singleDestination);
+        return singleDestination != null;
       case IdObjectsDslPackage.ENTITY_REFERENCE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case IdObjectsDslPackage.ENTITY_REFERENCE__INVERSE_NAME:
-        return inverseName != null;
+        return INVERSE_NAME_EDEFAULT == null ? inverseName != null : !INVERSE_NAME_EDEFAULT.equals(inverseName);
     }
     return super.eIsSet(featureID);
   }
@@ -345,12 +357,10 @@ public class EntityReferenceImpl extends MinimalEObjectImpl.Container implements
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (listDestination: ");
-    result.append(listDestination);
-    result.append(", singleDestination: ");
-    result.append(singleDestination);
-    result.append(", name: ");
+    result.append(" (name: ");
     result.append(name);
+    result.append(", inverseName: ");
+    result.append(inverseName);
     result.append(')');
     return result.toString();
   }

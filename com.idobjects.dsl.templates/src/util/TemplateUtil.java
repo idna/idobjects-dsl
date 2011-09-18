@@ -110,16 +110,16 @@ public class TemplateUtil{
 
     public static String destinationName( EntityReference reference ){
         if( reference.getListDestination() != null ){
-            return reference.getListDestination();
+            return reference.getListDestination().getName();
         }
         else{
-            return reference.getSingleDestination();
+            return reference.getSingleDestination().getName();
         }
     }
 
     public static String inverseName( EntityReference reference ){
         if( reference.getInverseName() == null ) return "null";
-        return reference.getInverseName().getName();
+        return reference.getInverseName();
     }
 
     public static boolean hasInverse( EntityReference reference ){

@@ -238,9 +238,9 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getEntityReference_ListDestination()
+  public EReference getEntityReference_ListDestination()
   {
-    return (EAttribute)entityReferenceEClass.getEStructuralFeatures().get(0);
+    return (EReference)entityReferenceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -248,9 +248,9 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getEntityReference_SingleDestination()
+  public EReference getEntityReference_SingleDestination()
   {
-    return (EAttribute)entityReferenceEClass.getEStructuralFeatures().get(1);
+    return (EReference)entityReferenceEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -268,9 +268,9 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getEntityReference_InverseName()
+  public EAttribute getEntityReference_InverseName()
   {
-    return (EReference)entityReferenceEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)entityReferenceEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -366,10 +366,10 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
     createEReference(entityEClass, ENTITY__REFERENCES);
 
     entityReferenceEClass = createEClass(ENTITY_REFERENCE);
-    createEAttribute(entityReferenceEClass, ENTITY_REFERENCE__LIST_DESTINATION);
-    createEAttribute(entityReferenceEClass, ENTITY_REFERENCE__SINGLE_DESTINATION);
+    createEReference(entityReferenceEClass, ENTITY_REFERENCE__LIST_DESTINATION);
+    createEReference(entityReferenceEClass, ENTITY_REFERENCE__SINGLE_DESTINATION);
     createEAttribute(entityReferenceEClass, ENTITY_REFERENCE__NAME);
-    createEReference(entityReferenceEClass, ENTITY_REFERENCE__INVERSE_NAME);
+    createEAttribute(entityReferenceEClass, ENTITY_REFERENCE__INVERSE_NAME);
 
     abstractReferenceEClass = createEClass(ABSTRACT_REFERENCE);
     createEAttribute(abstractReferenceEClass, ABSTRACT_REFERENCE__NAME);
@@ -423,10 +423,10 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
     initEReference(getEntity_References(), this.getEntityReference(), null, "references", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(entityReferenceEClass, EntityReference.class, "EntityReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getEntityReference_ListDestination(), ecorePackage.getEString(), "listDestination", null, 0, 1, EntityReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getEntityReference_SingleDestination(), ecorePackage.getEString(), "singleDestination", null, 0, 1, EntityReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEntityReference_ListDestination(), this.getEntity(), null, "listDestination", null, 0, 1, EntityReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEntityReference_SingleDestination(), this.getEntity(), null, "singleDestination", null, 0, 1, EntityReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEntityReference_Name(), ecorePackage.getEString(), "name", null, 0, 1, EntityReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEntityReference_InverseName(), this.getEntityReference(), null, "inverseName", null, 0, 1, EntityReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEntityReference_InverseName(), ecorePackage.getEString(), "inverseName", null, 0, 1, EntityReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(abstractReferenceEClass, AbstractReference.class, "AbstractReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAbstractReference_Name(), ecorePackage.getEString(), "name", null, 0, 1, AbstractReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
