@@ -19,10 +19,20 @@
     <genClasses ecoreClass="platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//Entity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//Entity/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//Entity/properties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//Entity/references"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//EntityReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//EntityReference/listDestination"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//EntityReference/singleDestination"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//EntityReference/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//EntityReference/inverseName"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//AbstractReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//AbstractReference/name"/>
     </genClasses>
     <genClasses ecoreClass="platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//EntityProperty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//EntityProperty/propertyType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//EntityProperty/propertyName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//EntityProperty/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

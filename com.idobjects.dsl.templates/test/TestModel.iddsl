@@ -3,5 +3,11 @@ package com.idobjects.test.company{
 		String firstName;
 		String lastName;
 		int age;
+		Department department;
+	}
+	
+	entity Department {
+		String name;
+		List[Employee] members [inverse=department];
 	}
 }

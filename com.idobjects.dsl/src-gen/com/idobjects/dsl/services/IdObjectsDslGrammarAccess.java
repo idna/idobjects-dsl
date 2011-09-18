@@ -82,13 +82,15 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cPropertiesAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cPropertiesEntityPropertyParserRuleCall_3_0 = (RuleCall)cPropertiesAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cReferencesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cReferencesEntityReferenceParserRuleCall_4_0 = (RuleCall)cReferencesAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Entity:
-		//	"entity" name=ID "{" properties+=EntityProperty* "}";
+		//	"entity" name=ID "{" properties+=EntityProperty* references+=EntityReference* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"entity" name=ID "{" properties+=EntityProperty* "}"
+		//"entity" name=ID "{" properties+=EntityProperty* references+=EntityReference* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"entity"
@@ -109,8 +111,110 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//EntityProperty
 		public RuleCall getPropertiesEntityPropertyParserRuleCall_3_0() { return cPropertiesEntityPropertyParserRuleCall_3_0; }
 
+		//references+=EntityReference*
+		public Assignment getReferencesAssignment_4() { return cReferencesAssignment_4; }
+
+		//EntityReference
+		public RuleCall getReferencesEntityReferenceParserRuleCall_4_0() { return cReferencesEntityReferenceParserRuleCall_4_0; }
+
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+
+	public class EntityReferenceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EntityReference");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Group cGroup_0_0 = (Group)cAlternatives_0.eContents().get(0);
+		private final Keyword cListKeyword_0_0_0 = (Keyword)cGroup_0_0.eContents().get(0);
+		private final Assignment cListDestinationAssignment_0_0_1 = (Assignment)cGroup_0_0.eContents().get(1);
+		private final RuleCall cListDestinationIDTerminalRuleCall_0_0_1_0 = (RuleCall)cListDestinationAssignment_0_0_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_0_0_2 = (Keyword)cGroup_0_0.eContents().get(2);
+		private final Assignment cSingleDestinationAssignment_0_1 = (Assignment)cAlternatives_0.eContents().get(1);
+		private final RuleCall cSingleDestinationIDTerminalRuleCall_0_1_0 = (RuleCall)cSingleDestinationAssignment_0_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cInverseKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cInverseNameAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final CrossReference cInverseNameEntityReferenceCrossReference_2_1_0 = (CrossReference)cInverseNameAssignment_2_1.eContents().get(0);
+		private final RuleCall cInverseNameEntityReferenceIDTerminalRuleCall_2_1_0_1 = (RuleCall)cInverseNameEntityReferenceCrossReference_2_1_0.eContents().get(1);
+		private final Keyword cRightSquareBracketKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//EntityReference:
+		//	("List[" listDestination=ID "]" | singleDestination=ID) name=ID ("[inverse=" inverseName=[EntityReference] "]")? ";";
+		public ParserRule getRule() { return rule; }
+
+		//("List[" listDestination=ID "]" | singleDestination=ID) name=ID ("[inverse=" inverseName=[EntityReference] "]")? ";"
+		public Group getGroup() { return cGroup; }
+
+		//"List[" listDestination=ID "]" | singleDestination=ID
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+
+		//"List[" listDestination=ID "]"
+		public Group getGroup_0_0() { return cGroup_0_0; }
+
+		//"List["
+		public Keyword getListKeyword_0_0_0() { return cListKeyword_0_0_0; }
+
+		//listDestination=ID
+		public Assignment getListDestinationAssignment_0_0_1() { return cListDestinationAssignment_0_0_1; }
+
+		//ID
+		public RuleCall getListDestinationIDTerminalRuleCall_0_0_1_0() { return cListDestinationIDTerminalRuleCall_0_0_1_0; }
+
+		//"]"
+		public Keyword getRightSquareBracketKeyword_0_0_2() { return cRightSquareBracketKeyword_0_0_2; }
+
+		//singleDestination=ID
+		public Assignment getSingleDestinationAssignment_0_1() { return cSingleDestinationAssignment_0_1; }
+
+		//ID
+		public RuleCall getSingleDestinationIDTerminalRuleCall_0_1_0() { return cSingleDestinationIDTerminalRuleCall_0_1_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//("[inverse=" inverseName=[EntityReference] "]")?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"[inverse="
+		public Keyword getInverseKeyword_2_0() { return cInverseKeyword_2_0; }
+
+		//inverseName=[EntityReference]
+		public Assignment getInverseNameAssignment_2_1() { return cInverseNameAssignment_2_1; }
+
+		//[EntityReference]
+		public CrossReference getInverseNameEntityReferenceCrossReference_2_1_0() { return cInverseNameEntityReferenceCrossReference_2_1_0; }
+
+		//ID
+		public RuleCall getInverseNameEntityReferenceIDTerminalRuleCall_2_1_0_1() { return cInverseNameEntityReferenceIDTerminalRuleCall_2_1_0_1; }
+
+		//"]"
+		public Keyword getRightSquareBracketKeyword_2_2() { return cRightSquareBracketKeyword_2_2; }
+
+		//";"
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+	}
+
+	public class AbstractReferenceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AbstractReference");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		
+		//AbstractReference:
+		//	name=ID;
+		public ParserRule getRule() { return rule; }
+
+		//name=ID
+		public Assignment getNameAssignment() { return cNameAssignment; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
 	}
 
 	public class EntityPropertyElements extends AbstractParserRuleElementFinder {
@@ -118,15 +222,15 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cPropertyTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cPropertyTypeBasicTypeParserRuleCall_0_0 = (RuleCall)cPropertyTypeAssignment_0.eContents().get(0);
-		private final Assignment cPropertyNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cPropertyNameIDTerminalRuleCall_1_0 = (RuleCall)cPropertyNameAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//EntityProperty:
-		//	propertyType=BasicType propertyName=ID ";";
+		//	propertyType=BasicType name=ID ";";
 		public ParserRule getRule() { return rule; }
 
-		//propertyType=BasicType propertyName=ID ";"
+		//propertyType=BasicType name=ID ";"
 		public Group getGroup() { return cGroup; }
 
 		//propertyType=BasicType
@@ -135,11 +239,11 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//BasicType
 		public RuleCall getPropertyTypeBasicTypeParserRuleCall_0_0() { return cPropertyTypeBasicTypeParserRuleCall_0_0; }
 
-		//propertyName=ID
-		public Assignment getPropertyNameAssignment_1() { return cPropertyNameAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getPropertyNameIDTerminalRuleCall_1_0() { return cPropertyNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
@@ -301,6 +405,8 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 	private ModelElements pModel;
 	private PackageElements pPackage;
 	private EntityElements pEntity;
+	private EntityReferenceElements pEntityReference;
+	private AbstractReferenceElements pAbstractReference;
 	private EntityPropertyElements pEntityProperty;
 	private PackageNameElements pPackageName;
 	private BasicTypeElements pBasicType;
@@ -350,7 +456,7 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Entity:
-	//	"entity" name=ID "{" properties+=EntityProperty* "}";
+	//	"entity" name=ID "{" properties+=EntityProperty* references+=EntityReference* "}";
 	public EntityElements getEntityAccess() {
 		return (pEntity != null) ? pEntity : (pEntity = new EntityElements());
 	}
@@ -359,8 +465,28 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getEntityAccess().getRule();
 	}
 
+	//EntityReference:
+	//	("List[" listDestination=ID "]" | singleDestination=ID) name=ID ("[inverse=" inverseName=[EntityReference] "]")? ";";
+	public EntityReferenceElements getEntityReferenceAccess() {
+		return (pEntityReference != null) ? pEntityReference : (pEntityReference = new EntityReferenceElements());
+	}
+	
+	public ParserRule getEntityReferenceRule() {
+		return getEntityReferenceAccess().getRule();
+	}
+
+	//AbstractReference:
+	//	name=ID;
+	public AbstractReferenceElements getAbstractReferenceAccess() {
+		return (pAbstractReference != null) ? pAbstractReference : (pAbstractReference = new AbstractReferenceElements());
+	}
+	
+	public ParserRule getAbstractReferenceRule() {
+		return getAbstractReferenceAccess().getRule();
+	}
+
 	//EntityProperty:
-	//	propertyType=BasicType propertyName=ID ";";
+	//	propertyType=BasicType name=ID ";";
 	public EntityPropertyElements getEntityPropertyAccess() {
 		return (pEntityProperty != null) ? pEntityProperty : (pEntityProperty = new EntityPropertyElements());
 	}

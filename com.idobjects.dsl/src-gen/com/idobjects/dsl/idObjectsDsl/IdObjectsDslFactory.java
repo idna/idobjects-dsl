@@ -53,6 +53,24 @@ public interface IdObjectsDslFactory extends EFactory
   Entity createEntity();
 
   /**
+   * Returns a new object of class '<em>Entity Reference</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Entity Reference</em>'.
+   * @generated
+   */
+  EntityReference createEntityReference();
+
+  /**
+   * Returns a new object of class '<em>Abstract Reference</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abstract Reference</em>'.
+   * @generated
+   */
+  AbstractReference createAbstractReference();
+
+  /**
    * Returns a new object of class '<em>Entity Property</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

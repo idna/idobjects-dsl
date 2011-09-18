@@ -30,10 +30,25 @@ String packageName(Entity e):
  String staticName(EntityProperty p):
  JAVA util.TemplateUtil.staticName(com.idobjects.dsl.idObjectsDsl.EntityProperty); 
   
+   String staticName(EntityReference r):
+ JAVA util.TemplateUtil.staticName(com.idobjects.dsl.idObjectsDsl.EntityReference); 
   
- String entityName(EntityProperty p):
+ String entityName(EntityProperty p): 
  JAVA util.TemplateUtil.entityName(com.idobjects.dsl.idObjectsDsl.EntityProperty);
+ 
+ String entityName(EntityReference r):
+ JAVA util.TemplateUtil.entityName(com.idobjects.dsl.idObjectsDsl.EntityReference);
   
-  
+ String destinationName(EntityReference r):
+ JAVA util.TemplateUtil.destinationName(com.idobjects.dsl.idObjectsDsl.EntityReference);
+ 
+ String inverseName(EntityReference r):
+ JAVA util.TemplateUtil.inverseName(com.idobjects.dsl.idObjectsDsl.EntityReference);
+ 
+ boolean hasInverse(EntityReference r):
+ JAVA util.TemplateUtil.hasInverse(com.idobjects.dsl.idObjectsDsl.EntityReference);
+ 
+ boolean referenceType(EntityReference r):
+ JAVA util.TemplateUtil.referenceType(com.idobjects.dsl.idObjectsDsl.EntityReference);
  
  

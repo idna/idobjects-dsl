@@ -2,9 +2,9 @@
 «EXTENSION  util»
 
 «DEFINE Entity FOR Entity»
-	«FILE classFileName(this)»
+	«FILE classFileName()»
 			
-		package «packageName(this)»;
+		package «packageName()»;
 		
 		import com.idobjects.api.AbstractIdObject;
 		import com.idobjects.api.ModelScope;
@@ -18,7 +18,6 @@
 		}
 		
 		
-		«EXPAND Property FOREACH properties»
 		«EXPAND getterAndSetters FOREACH  properties»
 		}  
 	
@@ -27,16 +26,12 @@
 
 «DEFINE getterAndSetters FOR EntityProperty»
 	
-	public void «setterName(this)»(«propertyType(this)» «propertyName(this)») {
-		 setPropertyValue( «entityName(this)»MD.«staticName(this)», «propertyName(this)» );
+	public void «setterName()»(«propertyType()» «propertyName()») {
+		 setPropertyValue( «entityName()»MD.«staticName()», «propertyName()» );
 	}
 	
-	public «propertyType(this)» «getterName(this)»() {
-		return («propertyCastType(this)») getPropertyValue( «entityName(this)»MD.«staticName(this)» );	
+	public «propertyType()» «getterName()»() {
+		return («propertyCastType()») getPropertyValue( «entityName()»MD.«staticName()» );	
 	}
 
-«ENDDEFINE»
-
-«DEFINE Property FOR EntityProperty»
-	private «propertyType(this)» «propertyName(this)» ;
 «ENDDEFINE»

@@ -153,13 +153,105 @@ public interface IdObjectsDslPackage extends EPackage
   int ENTITY__PROPERTIES = 1;
 
   /**
+   * The feature id for the '<em><b>References</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY__REFERENCES = 2;
+
+  /**
    * The number of structural features of the '<em>Entity</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENTITY_FEATURE_COUNT = 2;
+  int ENTITY_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link com.idobjects.dsl.idObjectsDsl.impl.EntityReferenceImpl <em>Entity Reference</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.idobjects.dsl.idObjectsDsl.impl.EntityReferenceImpl
+   * @see com.idobjects.dsl.idObjectsDsl.impl.IdObjectsDslPackageImpl#getEntityReference()
+   * @generated
+   */
+  int ENTITY_REFERENCE = 3;
+
+  /**
+   * The feature id for the '<em><b>List Destination</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY_REFERENCE__LIST_DESTINATION = 0;
+
+  /**
+   * The feature id for the '<em><b>Single Destination</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY_REFERENCE__SINGLE_DESTINATION = 1;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY_REFERENCE__NAME = 2;
+
+  /**
+   * The feature id for the '<em><b>Inverse Name</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY_REFERENCE__INVERSE_NAME = 3;
+
+  /**
+   * The number of structural features of the '<em>Entity Reference</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY_REFERENCE_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link com.idobjects.dsl.idObjectsDsl.impl.AbstractReferenceImpl <em>Abstract Reference</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.idobjects.dsl.idObjectsDsl.impl.AbstractReferenceImpl
+   * @see com.idobjects.dsl.idObjectsDsl.impl.IdObjectsDslPackageImpl#getAbstractReference()
+   * @generated
+   */
+  int ABSTRACT_REFERENCE = 4;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_REFERENCE__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Abstract Reference</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_REFERENCE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.idobjects.dsl.idObjectsDsl.impl.EntityPropertyImpl <em>Entity Property</em>}' class.
@@ -169,7 +261,7 @@ public interface IdObjectsDslPackage extends EPackage
    * @see com.idobjects.dsl.idObjectsDsl.impl.IdObjectsDslPackageImpl#getEntityProperty()
    * @generated
    */
-  int ENTITY_PROPERTY = 3;
+  int ENTITY_PROPERTY = 5;
 
   /**
    * The feature id for the '<em><b>Property Type</b></em>' attribute.
@@ -181,13 +273,13 @@ public interface IdObjectsDslPackage extends EPackage
   int ENTITY_PROPERTY__PROPERTY_TYPE = 0;
 
   /**
-   * The feature id for the '<em><b>Property Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENTITY_PROPERTY__PROPERTY_NAME = 1;
+  int ENTITY_PROPERTY__NAME = 1;
 
   /**
    * The number of structural features of the '<em>Entity Property</em>' class.
@@ -285,6 +377,92 @@ public interface IdObjectsDslPackage extends EPackage
   EReference getEntity_Properties();
 
   /**
+   * Returns the meta object for the containment reference list '{@link com.idobjects.dsl.idObjectsDsl.Entity#getReferences <em>References</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>References</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.Entity#getReferences()
+   * @see #getEntity()
+   * @generated
+   */
+  EReference getEntity_References();
+
+  /**
+   * Returns the meta object for class '{@link com.idobjects.dsl.idObjectsDsl.EntityReference <em>Entity Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Entity Reference</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.EntityReference
+   * @generated
+   */
+  EClass getEntityReference();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.idobjects.dsl.idObjectsDsl.EntityReference#getListDestination <em>List Destination</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>List Destination</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.EntityReference#getListDestination()
+   * @see #getEntityReference()
+   * @generated
+   */
+  EAttribute getEntityReference_ListDestination();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.idobjects.dsl.idObjectsDsl.EntityReference#getSingleDestination <em>Single Destination</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Single Destination</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.EntityReference#getSingleDestination()
+   * @see #getEntityReference()
+   * @generated
+   */
+  EAttribute getEntityReference_SingleDestination();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.idobjects.dsl.idObjectsDsl.EntityReference#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.EntityReference#getName()
+   * @see #getEntityReference()
+   * @generated
+   */
+  EAttribute getEntityReference_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link com.idobjects.dsl.idObjectsDsl.EntityReference#getInverseName <em>Inverse Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Inverse Name</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.EntityReference#getInverseName()
+   * @see #getEntityReference()
+   * @generated
+   */
+  EReference getEntityReference_InverseName();
+
+  /**
+   * Returns the meta object for class '{@link com.idobjects.dsl.idObjectsDsl.AbstractReference <em>Abstract Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Abstract Reference</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.AbstractReference
+   * @generated
+   */
+  EClass getAbstractReference();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.idobjects.dsl.idObjectsDsl.AbstractReference#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.AbstractReference#getName()
+   * @see #getAbstractReference()
+   * @generated
+   */
+  EAttribute getAbstractReference_Name();
+
+  /**
    * Returns the meta object for class '{@link com.idobjects.dsl.idObjectsDsl.EntityProperty <em>Entity Property</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -306,15 +484,15 @@ public interface IdObjectsDslPackage extends EPackage
   EAttribute getEntityProperty_PropertyType();
 
   /**
-   * Returns the meta object for the attribute '{@link com.idobjects.dsl.idObjectsDsl.EntityProperty#getPropertyName <em>Property Name</em>}'.
+   * Returns the meta object for the attribute '{@link com.idobjects.dsl.idObjectsDsl.EntityProperty#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Property Name</em>'.
-   * @see com.idobjects.dsl.idObjectsDsl.EntityProperty#getPropertyName()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.EntityProperty#getName()
    * @see #getEntityProperty()
    * @generated
    */
-  EAttribute getEntityProperty_PropertyName();
+  EAttribute getEntityProperty_Name();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -410,6 +588,74 @@ public interface IdObjectsDslPackage extends EPackage
     EReference ENTITY__PROPERTIES = eINSTANCE.getEntity_Properties();
 
     /**
+     * The meta object literal for the '<em><b>References</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENTITY__REFERENCES = eINSTANCE.getEntity_References();
+
+    /**
+     * The meta object literal for the '{@link com.idobjects.dsl.idObjectsDsl.impl.EntityReferenceImpl <em>Entity Reference</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.idobjects.dsl.idObjectsDsl.impl.EntityReferenceImpl
+     * @see com.idobjects.dsl.idObjectsDsl.impl.IdObjectsDslPackageImpl#getEntityReference()
+     * @generated
+     */
+    EClass ENTITY_REFERENCE = eINSTANCE.getEntityReference();
+
+    /**
+     * The meta object literal for the '<em><b>List Destination</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENTITY_REFERENCE__LIST_DESTINATION = eINSTANCE.getEntityReference_ListDestination();
+
+    /**
+     * The meta object literal for the '<em><b>Single Destination</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENTITY_REFERENCE__SINGLE_DESTINATION = eINSTANCE.getEntityReference_SingleDestination();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENTITY_REFERENCE__NAME = eINSTANCE.getEntityReference_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Inverse Name</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENTITY_REFERENCE__INVERSE_NAME = eINSTANCE.getEntityReference_InverseName();
+
+    /**
+     * The meta object literal for the '{@link com.idobjects.dsl.idObjectsDsl.impl.AbstractReferenceImpl <em>Abstract Reference</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.idobjects.dsl.idObjectsDsl.impl.AbstractReferenceImpl
+     * @see com.idobjects.dsl.idObjectsDsl.impl.IdObjectsDslPackageImpl#getAbstractReference()
+     * @generated
+     */
+    EClass ABSTRACT_REFERENCE = eINSTANCE.getAbstractReference();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ABSTRACT_REFERENCE__NAME = eINSTANCE.getAbstractReference_Name();
+
+    /**
      * The meta object literal for the '{@link com.idobjects.dsl.idObjectsDsl.impl.EntityPropertyImpl <em>Entity Property</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -428,12 +674,12 @@ public interface IdObjectsDslPackage extends EPackage
     EAttribute ENTITY_PROPERTY__PROPERTY_TYPE = eINSTANCE.getEntityProperty_PropertyType();
 
     /**
-     * The meta object literal for the '<em><b>Property Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ENTITY_PROPERTY__PROPERTY_NAME = eINSTANCE.getEntityProperty_PropertyName();
+    EAttribute ENTITY_PROPERTY__NAME = eINSTANCE.getEntityProperty_Name();
 
   }
 

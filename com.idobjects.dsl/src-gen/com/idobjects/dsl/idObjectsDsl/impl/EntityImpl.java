@@ -7,6 +7,7 @@ package com.idobjects.dsl.idObjectsDsl.impl;
 
 import com.idobjects.dsl.idObjectsDsl.Entity;
 import com.idobjects.dsl.idObjectsDsl.EntityProperty;
+import com.idobjects.dsl.idObjectsDsl.EntityReference;
 import com.idobjects.dsl.idObjectsDsl.IdObjectsDslPackage;
 
 import java.util.Collection;
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.idobjects.dsl.idObjectsDsl.impl.EntityImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.idobjects.dsl.idObjectsDsl.impl.EntityImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link com.idobjects.dsl.idObjectsDsl.impl.EntityImpl#getReferences <em>References</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,6 +72,16 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
    * @ordered
    */
   protected EList<EntityProperty> properties;
+
+  /**
+   * The cached value of the '{@link #getReferences() <em>References</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getReferences()
+   * @generated
+   * @ordered
+   */
+  protected EList<EntityReference> references;
 
   /**
    * <!-- begin-user-doc -->
@@ -134,6 +146,20 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<EntityReference> getReferences()
+  {
+    if (references == null)
+    {
+      references = new EObjectContainmentEList<EntityReference>(EntityReference.class, this, IdObjectsDslPackage.ENTITY__REFERENCES);
+    }
+    return references;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -141,6 +167,8 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
     {
       case IdObjectsDslPackage.ENTITY__PROPERTIES:
         return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+      case IdObjectsDslPackage.ENTITY__REFERENCES:
+        return ((InternalEList<?>)getReferences()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -159,6 +187,8 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
         return getName();
       case IdObjectsDslPackage.ENTITY__PROPERTIES:
         return getProperties();
+      case IdObjectsDslPackage.ENTITY__REFERENCES:
+        return getReferences();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -181,6 +211,10 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
         getProperties().clear();
         getProperties().addAll((Collection<? extends EntityProperty>)newValue);
         return;
+      case IdObjectsDslPackage.ENTITY__REFERENCES:
+        getReferences().clear();
+        getReferences().addAll((Collection<? extends EntityReference>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -201,6 +235,9 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
       case IdObjectsDslPackage.ENTITY__PROPERTIES:
         getProperties().clear();
         return;
+      case IdObjectsDslPackage.ENTITY__REFERENCES:
+        getReferences().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -219,6 +256,8 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case IdObjectsDslPackage.ENTITY__PROPERTIES:
         return properties != null && !properties.isEmpty();
+      case IdObjectsDslPackage.ENTITY__REFERENCES:
+        return references != null && !references.isEmpty();
     }
     return super.eIsSet(featureID);
   }

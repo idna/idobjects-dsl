@@ -13,11 +13,29 @@ Package: 'package' name=PackageName '{'
 Entity:
 	'entity' name=ID '{'
 		properties += EntityProperty*
+		references +=EntityReference*
 	'}'
 ;
 
+EntityReference:
+	('List['listDestination=ID ']' 
+	|
+	singleDestination=ID) 
+	
+	name=ID
+	
+	('[inverse='inverseName=[EntityReference]']')?
+	
+	';' 
+;
+
+
+AbstractReference:
+	name=ID
+;
+
 EntityProperty:
-	propertyType=BasicType propertyName=ID ';'
+	propertyType=BasicType name=ID ';'
 ;
 
 PackageName:

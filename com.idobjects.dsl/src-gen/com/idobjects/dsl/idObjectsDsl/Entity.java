@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.idobjects.dsl.idObjectsDsl.Entity#getName <em>Name</em>}</li>
  *   <li>{@link com.idobjects.dsl.idObjectsDsl.Entity#getProperties <em>Properties</em>}</li>
+ *   <li>{@link com.idobjects.dsl.idObjectsDsl.Entity#getReferences <em>References</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,5 +70,21 @@ public interface Entity extends EObject
    * @generated
    */
   EList<EntityProperty> getProperties();
+
+  /**
+   * Returns the value of the '<em><b>References</b></em>' containment reference list.
+   * The list contents are of type {@link com.idobjects.dsl.idObjectsDsl.EntityReference}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>References</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>References</em>' containment reference list.
+   * @see com.idobjects.dsl.idObjectsDsl.IdObjectsDslPackage#getEntity_References()
+   * @model containment="true"
+   * @generated
+   */
+  EList<EntityReference> getReferences();
 
 } // Entity

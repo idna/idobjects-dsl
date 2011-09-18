@@ -5,8 +5,10 @@
  */
 package com.idobjects.dsl.idObjectsDsl.util;
 
+import com.idobjects.dsl.idObjectsDsl.AbstractReference;
 import com.idobjects.dsl.idObjectsDsl.Entity;
 import com.idobjects.dsl.idObjectsDsl.EntityProperty;
+import com.idobjects.dsl.idObjectsDsl.EntityReference;
 import com.idobjects.dsl.idObjectsDsl.IdObjectsDslPackage;
 import com.idobjects.dsl.idObjectsDsl.Model;
 
@@ -96,6 +98,16 @@ public class IdObjectsDslAdapterFactory extends AdapterFactoryImpl
         return createEntityAdapter();
       }
       @Override
+      public Adapter caseEntityReference(EntityReference object)
+      {
+        return createEntityReferenceAdapter();
+      }
+      @Override
+      public Adapter caseAbstractReference(AbstractReference object)
+      {
+        return createAbstractReferenceAdapter();
+      }
+      @Override
       public Adapter caseEntityProperty(EntityProperty object)
       {
         return createEntityPropertyAdapter();
@@ -163,6 +175,36 @@ public class IdObjectsDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEntityAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.idobjects.dsl.idObjectsDsl.EntityReference <em>Entity Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.idobjects.dsl.idObjectsDsl.EntityReference
+   * @generated
+   */
+  public Adapter createEntityReferenceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.idobjects.dsl.idObjectsDsl.AbstractReference <em>Abstract Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.idobjects.dsl.idObjectsDsl.AbstractReference
+   * @generated
+   */
+  public Adapter createAbstractReferenceAdapter()
   {
     return null;
   }

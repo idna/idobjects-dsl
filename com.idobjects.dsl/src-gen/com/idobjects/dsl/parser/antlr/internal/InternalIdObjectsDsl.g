@@ -229,12 +229,141 @@ ruleEntity returns [EObject current=null]
 	    }
 
 )
-)*	otherlv_4='}' 
+)*(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getEntityAccess().getReferencesEntityReferenceParserRuleCall_4_0()); 
+	    }
+		lv_references_4_0=ruleEntityReference		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getEntityRule());
+	        }
+       		add(
+       			$current, 
+       			"references",
+        		lv_references_4_0, 
+        		"EntityReference");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_5='}' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_4());
+    	newLeafNode(otherlv_5, grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_5());
     }
 )
 ;
+
+
+
+
+
+// Entry rule entryRuleEntityReference
+entryRuleEntityReference returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getEntityReferenceRule()); }
+	 iv_ruleEntityReference=ruleEntityReference 
+	 { $current=$iv_ruleEntityReference.current; } 
+	 EOF 
+;
+
+// Rule EntityReference
+ruleEntityReference returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(((	otherlv_0='List[' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getEntityReferenceAccess().getListKeyword_0_0_0());
+    }
+(
+(
+		lv_listDestination_1_0=RULE_ID
+		{
+			newLeafNode(lv_listDestination_1_0, grammarAccess.getEntityReferenceAccess().getListDestinationIDTerminalRuleCall_0_0_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getEntityReferenceRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"listDestination",
+        		lv_listDestination_1_0, 
+        		"ID");
+	    }
+
+)
+)	otherlv_2=']' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getEntityReferenceAccess().getRightSquareBracketKeyword_0_0_2());
+    }
+)
+    |(
+(
+		lv_singleDestination_3_0=RULE_ID
+		{
+			newLeafNode(lv_singleDestination_3_0, grammarAccess.getEntityReferenceAccess().getSingleDestinationIDTerminalRuleCall_0_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getEntityReferenceRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"singleDestination",
+        		lv_singleDestination_3_0, 
+        		"ID");
+	    }
+
+)
+))(
+(
+		lv_name_4_0=RULE_ID
+		{
+			newLeafNode(lv_name_4_0, grammarAccess.getEntityReferenceAccess().getNameIDTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getEntityReferenceRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_4_0, 
+        		"ID");
+	    }
+
+)
+)(	otherlv_5='[inverse=' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getEntityReferenceAccess().getInverseKeyword_2_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getEntityReferenceRule());
+	        }
+        }
+	otherlv_6=RULE_ID
+	{
+		newLeafNode(otherlv_6, grammarAccess.getEntityReferenceAccess().getInverseNameEntityReferenceCrossReference_2_1_0()); 
+	}
+
+)
+)	otherlv_7=']' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getEntityReferenceAccess().getRightSquareBracketKeyword_2_2());
+    }
+)?	otherlv_8=';' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getEntityReferenceAccess().getSemicolonKeyword_3());
+    }
+)
+;
+
+
 
 
 
@@ -274,9 +403,9 @@ ruleEntityProperty returns [EObject current=null]
 )
 )(
 (
-		lv_propertyName_1_0=RULE_ID
+		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_propertyName_1_0, grammarAccess.getEntityPropertyAccess().getPropertyNameIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getEntityPropertyAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -284,8 +413,8 @@ ruleEntityProperty returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"propertyName",
-        		lv_propertyName_1_0, 
+       			"name",
+        		lv_name_1_0, 
         		"ID");
 	    }
 

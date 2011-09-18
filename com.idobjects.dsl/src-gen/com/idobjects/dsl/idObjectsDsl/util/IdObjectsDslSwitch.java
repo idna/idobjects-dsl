@@ -5,8 +5,10 @@
  */
 package com.idobjects.dsl.idObjectsDsl.util;
 
+import com.idobjects.dsl.idObjectsDsl.AbstractReference;
 import com.idobjects.dsl.idObjectsDsl.Entity;
 import com.idobjects.dsl.idObjectsDsl.EntityProperty;
+import com.idobjects.dsl.idObjectsDsl.EntityReference;
 import com.idobjects.dsl.idObjectsDsl.IdObjectsDslPackage;
 import com.idobjects.dsl.idObjectsDsl.Model;
 
@@ -99,6 +101,20 @@ public class IdObjectsDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case IdObjectsDslPackage.ENTITY_REFERENCE:
+      {
+        EntityReference entityReference = (EntityReference)theEObject;
+        T result = caseEntityReference(entityReference);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case IdObjectsDslPackage.ABSTRACT_REFERENCE:
+      {
+        AbstractReference abstractReference = (AbstractReference)theEObject;
+        T result = caseAbstractReference(abstractReference);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case IdObjectsDslPackage.ENTITY_PROPERTY:
       {
         EntityProperty entityProperty = (EntityProperty)theEObject;
@@ -154,6 +170,38 @@ public class IdObjectsDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseEntity(Entity object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Entity Reference</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Entity Reference</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEntityReference(EntityReference object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Abstract Reference</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Abstract Reference</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAbstractReference(AbstractReference object)
   {
     return null;
   }

@@ -5,8 +5,10 @@
  */
 package com.idobjects.dsl.idObjectsDsl.impl;
 
+import com.idobjects.dsl.idObjectsDsl.AbstractReference;
 import com.idobjects.dsl.idObjectsDsl.Entity;
 import com.idobjects.dsl.idObjectsDsl.EntityProperty;
+import com.idobjects.dsl.idObjectsDsl.EntityReference;
 import com.idobjects.dsl.idObjectsDsl.IdObjectsDslFactory;
 import com.idobjects.dsl.idObjectsDsl.IdObjectsDslPackage;
 import com.idobjects.dsl.idObjectsDsl.Model;
@@ -74,6 +76,8 @@ public class IdObjectsDslFactoryImpl extends EFactoryImpl implements IdObjectsDs
       case IdObjectsDslPackage.MODEL: return createModel();
       case IdObjectsDslPackage.PACKAGE: return createPackage();
       case IdObjectsDslPackage.ENTITY: return createEntity();
+      case IdObjectsDslPackage.ENTITY_REFERENCE: return createEntityReference();
+      case IdObjectsDslPackage.ABSTRACT_REFERENCE: return createAbstractReference();
       case IdObjectsDslPackage.ENTITY_PROPERTY: return createEntityProperty();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -111,6 +115,28 @@ public class IdObjectsDslFactoryImpl extends EFactoryImpl implements IdObjectsDs
   {
     EntityImpl entity = new EntityImpl();
     return entity;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EntityReference createEntityReference()
+  {
+    EntityReferenceImpl entityReference = new EntityReferenceImpl();
+    return entityReference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbstractReference createAbstractReference()
+  {
+    AbstractReferenceImpl abstractReference = new AbstractReferenceImpl();
+    return abstractReference;
   }
 
   /**

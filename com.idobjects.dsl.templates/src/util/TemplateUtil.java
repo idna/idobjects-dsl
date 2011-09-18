@@ -4,8 +4,12 @@ import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.eclipse.emf.ecore.EObject;
+
+import com.idobjects.api.md.ReferenceType;
 import com.idobjects.dsl.idObjectsDsl.Entity;
 import com.idobjects.dsl.idObjectsDsl.EntityProperty;
+import com.idobjects.dsl.idObjectsDsl.EntityReference;
 
 public class TemplateUtil{
 
@@ -22,6 +26,9 @@ public class TemplateUtil{
         primitveToWrapper.put( "char", "Character" );
     }
 
+    public TemplateUtil(){
+    }
+
     public static String classFileName( Entity e ){
         com.idobjects.dsl.idObjectsDsl.Package pkg = ( com.idobjects.dsl.idObjectsDsl.Package )e.eContainer();
         String packagePath = pkg.getName().replace( ".", File.separator );
@@ -35,7 +42,7 @@ public class TemplateUtil{
     }
 
     public static String propertyName( EntityProperty entityProperty ){
-        return entityProperty.getPropertyName();
+        return entityProperty.getName();
     }
 
     public static String propertyType( EntityProperty entityProperty ){
@@ -53,11 +60,11 @@ public class TemplateUtil{
     }
 
     public static String setterName( EntityProperty p ){
-        return "set" + firstLetterUp( p.getPropertyName() );
+        return "set" + firstLetterUp( p.getName() );
     }
 
     public static String getterName( EntityProperty p ){
-        return "get" + firstLetterUp( p.getPropertyName() );
+        return "get" + firstLetterUp( p.getName() );
     }
 
     private static String firstLetterUp( String string ){
@@ -70,21 +77,62 @@ public class TemplateUtil{
     }
 
     public static String staticName( EntityProperty property ){
-        String name = property.getPropertyName();
+        StringBuilder result = allUpperCase( property.getName() );
+        return result.toString();
+    }
+
+    public static String staticName( EntityReference reference ){
+        StringBuilder result = allUpperCase( reference.getName() );
+        return result.toString();
+    }
+
+    public static StringBuilder allUpperCase( String string ){
         StringBuilder result = new StringBuilder();
-        for( int i = 0; i < name.length(); i++ ){
-            char c = name.charAt( i );
+        for( int i = 0; i < string.length(); i++ ){
+            char c = string.charAt( i );
             if( Character.isUpperCase( c ) ){
                 result.append( "_" );
             }
             result.append( Character.toUpperCase( c ) );
         }
-        return result.toString();
+        return result;
     }
 
     public static String entityName( EntityProperty property ){
         Entity entity = ( Entity )property.eContainer();
         return entity.getName();
+    }
+
+    public static String entityName( EntityReference entityReference ){
+        Entity entity = ( Entity )entityReference.eContainer();
+        return entity.getName();
+    }
+
+    public static String destinationName( EntityReference reference ){
+        if( reference.getListDestination() != null ){
+            return reference.getListDestination();
+        }
+        else{
+            return reference.getSingleDestination();
+        }
+    }
+
+    public static String inverseName( EntityReference reference ){
+        if( reference.getInverseName() == null ) return "null";
+        return reference.getInverseName().getName();
+    }
+
+    public static boolean hasInverse( EntityReference reference ){
+        if(reference.getInverseName() != null) return true;
+//        String destinationName= destinationName( reference );
+        return false;
+        
+    }
+
+    public String referenceType( EntityReference reference ){
+        if( reference.getListDestination() != null ) return ReferenceType.LIST.name();
+
+        return ReferenceType.SINGLE.name();
     }
 
 }
