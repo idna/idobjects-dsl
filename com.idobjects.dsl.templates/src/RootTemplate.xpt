@@ -2,21 +2,7 @@
 «EXTENSION  util»
 
 «DEFINE main FOR Package»
-	«EXPAND Entity FOREACH entities» 
-
+	«EXPAND IdObjectTemplate::Entity FOREACH entities» 
+	«EXPAND IdObjectMDTemplate::Entity FOREACH entities»
 «ENDDEFINE»
 
-
-«DEFINE Entity FOR Entity»
-	«FILE classFileName(this)»
-		package «packageName(this)»;
-		public class «name» {
-		«EXPAND Property FOREACH properties»
-		}  
-	
-	«ENDFILE»
-«ENDDEFINE»
-
-«DEFINE Property FOR EntityProperty»
-	private «propertyType(this)» «propertyName(this)» ;
-«ENDDEFINE»

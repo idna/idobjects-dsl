@@ -3,6 +3,9 @@ import idObjectsDsl;
 String classFileName(Entity e) :
   JAVA util.TemplateUtil.classFileName(com.idobjects.dsl.idObjectsDsl.Entity);
   
+  String mdClassFileName(Entity e) :
+  JAVA util.TemplateUtil.mdClassFileName(com.idobjects.dsl.idObjectsDsl.Entity);
+  
 String propertyName(EntityProperty p):
  JAVA util.TemplateUtil.propertyName(com.idobjects.dsl.idObjectsDsl.EntityProperty);
  
@@ -10,4 +13,27 @@ String propertyType(EntityProperty p):
  JAVA util.TemplateUtil.propertyType(com.idobjects.dsl.idObjectsDsl.EntityProperty);
  
 String packageName(Entity e):
- JAVA util.TemplateUtil.packageName(com.idobjects.dsl.idObjectsDsl.Entity); 
+ JAVA util.TemplateUtil.packageName(com.idobjects.dsl.idObjectsDsl.Entity);
+ 
+ String setterName(EntityProperty p):
+ JAVA util.TemplateUtil.setterName(com.idobjects.dsl.idObjectsDsl.EntityProperty);
+ 
+ String getterName(EntityProperty p):
+ JAVA util.TemplateUtil.getterName(com.idobjects.dsl.idObjectsDsl.EntityProperty);
+ 
+ String propertyTypeClass(EntityProperty p):
+ JAVA util.TemplateUtil.propertyTypeClass(com.idobjects.dsl.idObjectsDsl.EntityProperty);
+ 
+ String propertyCastType(EntityProperty p):
+ JAVA util.TemplateUtil.propertyCastType(com.idobjects.dsl.idObjectsDsl.EntityProperty);
+ 
+ String staticName(EntityProperty p):
+ JAVA util.TemplateUtil.staticName(com.idobjects.dsl.idObjectsDsl.EntityProperty); 
+  
+  
+ String entityName(EntityProperty p):
+ JAVA util.TemplateUtil.entityName(com.idobjects.dsl.idObjectsDsl.EntityProperty);
+  
+  
+ 
+ 
