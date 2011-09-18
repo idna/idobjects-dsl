@@ -1,0 +1,64 @@
+«IMPORT idObjectsDsl»
+«EXTENSION  util»
+
+«DEFINE Entity FOR Entity»
+	«FILE mdClassFileName(this)»
+			
+		package «packageName(this)»;
+		
+		«EXPAND Imports FOR this»
+		
+		public final class «name»MD extends IdObjectMD{
+
+			«EXPAND Property FOREACH  properties»
+		
+		
+			public static final List<IdObjectPropertyMD> PROPERTIES;
+	    	public static final List<IdObjectReferenceMD> REFERENCES;
+	
+	    	static{
+		        List<IdObjectPropertyMD> properties = new ArrayList<IdObjectPropertyMD>();
+		        
+		        «FOREACH properties AS p»
+		        properties.add( «staticName(p)» );
+		        «ENDFOREACH» 
+		        
+		        PROPERTIES = Collections.unmodifiableList( properties );
+		
+		        List<IdObjectReferenceMD> references = new ArrayList<IdObjectReferenceMD>();
+		        
+		        REFERENCES = Collections.unmodifiableList( references );
+	    	}
+	    	
+	    	
+	   	    private static final «name»MD instance = new «name»MD();
+
+		    public static final «name»MD instance(){
+		        return instance;
+		    }
+		
+		    private «name»MD(){
+		        super( «name».class.getName(), PROPERTIES, REFERENCES );
+		    }
+		
+		}  
+	
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE Imports FOR Entity»
+		import java.util.ArrayList;
+		import java.util.Collections;
+		import java.util.List;
+
+		import com.idobjects.api.md.IdObjectMD;
+		import com.idobjects.api.md.IdObjectPropertyMD;
+		import com.idobjects.api.md.IdObjectReferenceMD;
+		import com.idobjects.api.md.ReferenceType;
+«ENDDEFINE»
+
+«DEFINE Property FOR EntityProperty»
+
+    public static final IdObjectPropertyMD «staticName(this)» = new IdObjectPropertyMD("«propertyName»", «propertyTypeClass(this)»);
+
+«ENDDEFINE»

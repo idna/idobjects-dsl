@@ -1,0 +1,42 @@
+«IMPORT idObjectsDsl»
+«EXTENSION  util»
+
+«DEFINE Entity FOR Entity»
+	«FILE classFileName(this)»
+			
+		package «packageName(this)»;
+		
+		import com.idobjects.api.AbstractIdObject;
+		import com.idobjects.api.ModelScope;
+		import com.idobjects.api.ObjectIdentifier;
+		
+		
+		public class «name» extends AbstractIdObject {
+	
+		public «name»(ModelScope modelScope, ObjectIdentifier objectId) {
+			super(modelScope, objectId);
+		}
+		
+		
+		«EXPAND Property FOREACH properties»
+		«EXPAND getterAndSetters FOREACH  properties»
+		}  
+	
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE getterAndSetters FOR EntityProperty»
+	
+	public void «setterName(this)»(«propertyType(this)» «propertyName(this)») {
+		 setPropertyValue( «entityName(this)»MD.«staticName(this)», «propertyName(this)» );
+	}
+	
+	public «propertyType(this)» «getterName(this)»() {
+		return («propertyCastType(this)») getPropertyValue( «entityName(this)»MD.«staticName(this)» );	
+	}
+
+«ENDDEFINE»
+
+«DEFINE Property FOR EntityProperty»
+	private «propertyType(this)» «propertyName(this)» ;
+«ENDDEFINE»
