@@ -1,0 +1,43 @@
+grammar com.idobjects.dsl.IdObjectsDsl with org.eclipse.xtext.common.Terminals
+
+generate idObjectsDsl "http://www.idobjects.com/IdObjectsDsl"
+
+Model:
+	packages+=Package*;
+	
+	
+Package: 'package' name=PackageName '{'
+	entities += Entity*
+	'}';
+	
+Entity:
+	'entity' name=ID '{'
+		properties += EntityProperty*
+	'}'
+;
+
+EntityProperty:
+	propertyType=BasicType propertyName=ID ';'
+;
+
+PackageName:
+	ID ('.'ID)*
+;
+
+BasicType:
+	PrimitiveTypes | WrapperTypes | DirectSupportedTypes
+	
+;
+
+DirectSupportedTypes:
+	'String' 
+;
+	
+WrapperTypes:
+	'Byte' | 'Short' | 'Integer' | 'Long' | 'Float' | 'Double' | 'Boolean' | 'Character'
+;	
+	
+PrimitiveTypes:
+	'byte' | 'short' | 'int' | 'long' | 'float' | 'double' | 'boolean' | 'char'
+;
+

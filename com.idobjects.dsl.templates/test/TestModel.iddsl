@@ -1,0 +1,6 @@
+package com.idobjects.test.company{
+	entity Employee{
+		String firstName;
+		String lastName;
+	}
+}

@@ -1,0 +1,13 @@
+import idObjectsDsl;
+
+String classFileName(Entity e) :
+  JAVA util.TemplateUtil.classFileName(com.idobjects.dsl.idObjectsDsl.Entity);
+  
+String propertyName(EntityProperty p):
+ JAVA util.TemplateUtil.propertyName(com.idobjects.dsl.idObjectsDsl.EntityProperty);
+ 
+String propertyType(EntityProperty p):
+ JAVA util.TemplateUtil.propertyType(com.idobjects.dsl.idObjectsDsl.EntityProperty);
+ 
+String packageName(Entity e):
+ JAVA util.TemplateUtil.packageName(com.idobjects.dsl.idObjectsDsl.Entity); 
