@@ -6,6 +6,9 @@
 			
 		package «packageName()»;
 		
+		import java.util.Collection;
+		import java.util.List;
+		
 		import com.idobjects.api.AbstractIdObject;
 		import com.idobjects.api.ModelScope;
 		import com.idobjects.api.ObjectIdentifier;
@@ -18,13 +21,16 @@
 		}
 		
 		
-		«EXPAND getterAndSetters FOREACH  properties»
+		«EXPAND getAndSetProperties FOREACH  properties»
+
+		«EXPAND getAndSetReferences FOREACH  references»
+		
 		}  
 	
 	«ENDFILE»
 «ENDDEFINE»
 
-«DEFINE getterAndSetters FOR EntityProperty»
+«DEFINE getAndSetProperties FOR EntityProperty»
 	
 	public void «setterName()»(«propertyType()» «propertyName()») {
 		 setPropertyValue( «entityName()»MD.«staticName()», «propertyName()» );
@@ -33,5 +39,52 @@
 	public «propertyType()» «getterName()»() {
 		return («propertyCastType()») getPropertyValue( «entityName()»MD.«staticName()» );	
 	}
+	
+	public void «removeName()»()  {
+		removePropertyValue( «entityName()»MD.«staticName()» );
+	}
+
+«ENDDEFINE»
+
+«DEFINE getAndSetReferences FOR EntityReference»
+
+	«IF isListReference() »
+	
+		public void «addName()»( «destinationName()» toAdd)  {
+			addReference( «entityName()»MD.«staticName()» ,toAdd);
+		}
+		
+		public void «addNameCollection()» (Collection<? extends «destinationName()» > toAdd) {
+			addReferences( «entityName()»MD.«staticName()» ,toAdd);
+		}
+		
+		public void «removeName()» ( «destinationName()» toRemove){
+			removeReference(  «entityName()»MD.«staticName()», toRemove);
+		}
+		
+		public void «removeNameCollection()» ( Collection< ? extends «destinationName()»> toRemove){
+			removeReferences(  «entityName()»MD.«staticName()», toRemove);
+		}
+		
+		public List< «destinationName()» > «getterName()» (){
+		  return getCastedReferences( «entityName()»MD.«staticName()», «destinationName()».class );
+		}
+
+	«ELSE»
+		public void «setterName()» ( «destinationName()» «name» ) {
+			addReference( «entityName()»MD.«staticName()» ,«name»);
+		}
+		
+		public void  «removeName()» () {
+			removeReference(  «entityName()»MD.«staticName()»);
+		}
+		
+		public «destinationName()»  «getterName()» (){
+		 return (  «destinationName()» )getSingleReference(  «entityName()»MD.«staticName()» );
+		}
+		
+		 
+	«ENDIF»
+	
 
 «ENDDEFINE»

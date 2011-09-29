@@ -4,12 +4,15 @@ import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import com.idobjects.api.md.ReferenceType;
 import com.idobjects.dsl.idObjectsDsl.Entity;
 import com.idobjects.dsl.idObjectsDsl.EntityProperty;
 import com.idobjects.dsl.idObjectsDsl.EntityReference;
+import com.idobjects.dsl.idObjectsDsl.Model;
+import com.idobjects.dsl.idObjectsDsl.Package;
 
 public class TemplateUtil{
 
@@ -29,64 +32,77 @@ public class TemplateUtil{
     public TemplateUtil(){
     }
 
-    public static String classFileName( Entity e ){
+    public String classFileName( Entity e ){
         com.idobjects.dsl.idObjectsDsl.Package pkg = ( com.idobjects.dsl.idObjectsDsl.Package )e.eContainer();
         String packagePath = pkg.getName().replace( ".", File.separator );
         return packagePath + "/" + e.getName() + ".java";
     }
 
-    public static String mdClassFileName( Entity e ){
+    public String mdClassFileName( Entity e ){
         com.idobjects.dsl.idObjectsDsl.Package pkg = ( com.idobjects.dsl.idObjectsDsl.Package )e.eContainer();
         String packagePath = pkg.getName().replace( ".", File.separator );
         return packagePath + "/" + e.getName() + "MD.java";
     }
 
-    public static String propertyName( EntityProperty entityProperty ){
+    public String propertyName( EntityProperty entityProperty ){
         return entityProperty.getName();
     }
 
-    public static String propertyType( EntityProperty entityProperty ){
+    public String propertyType( EntityProperty entityProperty ){
         return entityProperty.getPropertyType();
     }
 
-    public static String propertyCastType( EntityProperty entityProperty ){
+    public String propertyCastType( EntityProperty entityProperty ){
         if( primitveToWrapper.containsKey( entityProperty.getPropertyType() ) ) return primitveToWrapper.get( entityProperty.getPropertyType() );
         return entityProperty.getPropertyType();
     }
 
-    public static String packageName( Entity e ){
+    public String packageName( Entity e ){
         com.idobjects.dsl.idObjectsDsl.Package pkg = ( com.idobjects.dsl.idObjectsDsl.Package )e.eContainer();
         return pkg.getName();
     }
 
-    public static String setterName( EntityProperty p ){
+    public String setterName( EntityProperty p ){
         return "set" + firstLetterUp( p.getName() );
     }
+    
+    public String setterName( EntityReference r ){
+        return "set" + firstLetterUp( r.getName() );
+    }
+    
 
-    public static String getterName( EntityProperty p ){
+    public String getterName( EntityProperty p ){
         return "get" + firstLetterUp( p.getName() );
     }
 
-    private static String firstLetterUp( String string ){
+    public String getterName( EntityReference r ){
+        return "get"  +firstLetterUp( r.getName() );
+    }
+
+    public String removeName( EntityProperty p ){
+        return "remove" + firstLetterUp( p.getName() );
+    }
+
+    private String firstLetterUp( String string ){
         return string.substring( 0, 1 ).toUpperCase() + string.substring( 1 );
     }
 
-    public static String propertyTypeClass( EntityProperty property ){
+    public String propertyTypeClass( EntityProperty property ){
         String propertyType = property.getPropertyType();
         return propertyType + ".class";
     }
 
-    public static String staticName( EntityProperty property ){
+    public String staticName( EntityProperty property ){
         StringBuilder result = allUpperCase( property.getName() );
         return result.toString();
     }
 
-    public static String staticName( EntityReference reference ){
+    public String staticName( EntityReference reference ){
         StringBuilder result = allUpperCase( reference.getName() );
         return result.toString();
     }
 
-    public static StringBuilder allUpperCase( String string ){
+    public StringBuilder allUpperCase( String string ){
         StringBuilder result = new StringBuilder();
         for( int i = 0; i < string.length(); i++ ){
             char c = string.charAt( i );
@@ -98,17 +114,17 @@ public class TemplateUtil{
         return result;
     }
 
-    public static String entityName( EntityProperty property ){
+    public String entityName( EntityProperty property ){
         Entity entity = ( Entity )property.eContainer();
         return entity.getName();
     }
 
-    public static String entityName( EntityReference entityReference ){
+    public String entityName( EntityReference entityReference ){
         Entity entity = ( Entity )entityReference.eContainer();
         return entity.getName();
     }
 
-    public static String destinationName( EntityReference reference ){
+    public String destinationName( EntityReference reference ){
         if( reference.getListDestination() != null ){
             return reference.getListDestination().getName();
         }
@@ -122,17 +138,53 @@ public class TemplateUtil{
         return reference.getInverseName();
     }
 
-    public static boolean hasInverse( EntityReference reference ){
-        if(reference.getInverseName() != null) return true;
-//        String destinationName= destinationName( reference );
+    public boolean hasInverse( EntityReference reference ){
+        if( reference.getInverseName() != null ) return true;
+        String destinationName = destinationName( reference );
+
         return false;
-        
+
+    }
+
+    private Entity getEntity( String entityName, Model model ){
+        EList<Package> packages = model.getPackages();
+        for( Package pkg : packages ){
+            for( Entity entity : pkg.getEntities() ){
+            }
+        }
+        return null;
+
     }
 
     public String referenceType( EntityReference reference ){
         if( reference.getListDestination() != null ) return ReferenceType.LIST.name();
-
         return ReferenceType.SINGLE.name();
+    }
+
+    public boolean isListReference( EntityReference reference ){
+        return reference.getListDestination() != null;
+    }
+
+    public String addName( EntityReference reference ){
+        String suffix = firstLetterUp( reference.getName() );
+        if( suffix.endsWith( "s" ) ) suffix = suffix.substring( 0, suffix.length() - 1 );
+        return "add" + suffix;
+    }
+
+    public String addNameCollection( EntityReference reference ){
+        String suffix = firstLetterUp( reference.getName() );
+        return "add" + suffix;
+    }
+
+    public String removeName( EntityReference reference ){
+        String suffix = firstLetterUp( reference.getName() );
+        if( suffix.endsWith( "s" ) ) suffix = suffix.substring( 0, suffix.length() - 1 );
+        return "remove" + suffix;
+    }
+
+    public String removeNameCollection( EntityReference reference ){
+        String suffix = firstLetterUp( reference.getName() );
+        return "remove" + suffix;
     }
 
 }

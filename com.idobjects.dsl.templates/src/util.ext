@@ -18,8 +18,17 @@ String packageName(Entity e):
  String setterName(EntityProperty p):
  JAVA util.TemplateUtil.setterName(com.idobjects.dsl.idObjectsDsl.EntityProperty);
  
+  String setterName(EntityReference p):
+ JAVA util.TemplateUtil.setterName(com.idobjects.dsl.idObjectsDsl.EntityReference);
+ 
  String getterName(EntityProperty p):
  JAVA util.TemplateUtil.getterName(com.idobjects.dsl.idObjectsDsl.EntityProperty);
+ 
+ String getterName(EntityReference r):
+ JAVA util.TemplateUtil.getterName(com.idobjects.dsl.idObjectsDsl.EntityReference);
+
+ String removeName(EntityProperty p):
+ JAVA util.TemplateUtil.removeName(com.idobjects.dsl.idObjectsDsl.EntityProperty);
  
  String propertyTypeClass(EntityProperty p):
  JAVA util.TemplateUtil.propertyTypeClass(com.idobjects.dsl.idObjectsDsl.EntityProperty);
@@ -51,4 +60,18 @@ String packageName(Entity e):
  boolean referenceType(EntityReference r):
  JAVA util.TemplateUtil.referenceType(com.idobjects.dsl.idObjectsDsl.EntityReference);
  
+ boolean isListReference(EntityReference r):
+ JAVA util.TemplateUtil.isListReference(com.idobjects.dsl.idObjectsDsl.EntityReference);
+ 
+ String addName(EntityReference r):
+ JAVA util.TemplateUtil.addName(com.idobjects.dsl.idObjectsDsl.EntityReference);
+ 
+ String addNameCollection(EntityReference r):
+ JAVA util.TemplateUtil.addNameCollection(com.idobjects.dsl.idObjectsDsl.EntityReference);
+ 
+ String removeName(EntityReference r):
+ JAVA util.TemplateUtil.removeName(com.idobjects.dsl.idObjectsDsl.EntityReference); 
+ 
+  String removeNameCollection(EntityReference r):
+ JAVA util.TemplateUtil.removeNameCollection(com.idobjects.dsl.idObjectsDsl.EntityReference); 
  
