@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import javax.management.RuntimeErrorException;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
@@ -65,18 +67,17 @@ public class TemplateUtil{
     public String setterName( EntityProperty p ){
         return "set" + firstLetterUp( p.getName() );
     }
-    
+
     public String setterName( EntityReference r ){
         return "set" + firstLetterUp( r.getName() );
     }
-    
 
     public String getterName( EntityProperty p ){
         return "get" + firstLetterUp( p.getName() );
     }
 
     public String getterName( EntityReference r ){
-        return "get"  +firstLetterUp( r.getName() );
+        return "get" + firstLetterUp( r.getName() );
     }
 
     public String removeName( EntityProperty p ){
@@ -133,17 +134,46 @@ public class TemplateUtil{
         }
     }
 
-    public static String inverseName( EntityReference reference ){
-        if( reference.getInverseName() == null ) return "null";
-        return reference.getInverseName();
+    public String inverseName( EntityReference reference ){
+        String result = getInverseNameImpl( reference );
+        if( result == null ) return "null";
+        return result;
     }
 
     public boolean hasInverse( EntityReference reference ){
-        if( reference.getInverseName() != null ) return true;
+        return getInverseNameImpl( reference ) != null;
+    }
+
+    private String getInverseNameImpl( EntityReference reference ){
+        if( reference.getInverseName() != null ) return reference.getInverseName();
         String destinationName = destinationName( reference );
 
-        return false;
+        Entity entity = ( Entity )reference.eContainer();
+        Model model = ( Model )entity.eContainer().eContainer();
+        Entity destinationEntity = searchEntity( model, destinationName );
 
+        for( EntityReference destinationEntityReference : destinationEntity.getReferences() ){
+            Entity destEntity;
+
+            if( destinationEntityReference.getListDestination() != null ) destEntity = destinationEntityReference.getListDestination();
+            else destEntity = destinationEntityReference.getSingleDestination();
+
+            if( !destEntity.equals( entity ) ) continue;
+            if( destinationEntityReference.getInverseName() == null ) continue;
+
+            if( destinationEntityReference.getInverseName().equals( reference.getName() ) ) return destinationEntityReference.getName();
+
+        }
+        return null;
+    }
+
+    private Entity searchEntity( Model model, String enitityName ){
+        for( Package pkg : model.getPackages() ){
+            for( Entity entity : pkg.getEntities() ){
+                if( entity.getName().equals( enitityName ) ) return entity;
+            }
+        }
+        throw new RuntimeException( "No entity found with name " + enitityName );
     }
 
     private Entity getEntity( String entityName, Model model ){

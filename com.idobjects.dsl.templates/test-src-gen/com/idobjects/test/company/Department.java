@@ -45,4 +45,16 @@ public class Department extends AbstractIdObject{
         return getCastedReferences( DepartmentMD.MEMBERS, Employee.class );
     }
 
+    public void setBoss( Employee boss ){
+        addReference( DepartmentMD.BOSS, boss );
+    }
+
+    public void removeBos(){
+        removeReference( DepartmentMD.BOSS );
+    }
+
+    public Employee getBoss(){
+        return ( Employee )getSingleReference( DepartmentMD.BOSS );
+    }
+
 }

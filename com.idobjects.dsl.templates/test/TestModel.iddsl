@@ -9,5 +9,7 @@ package com.idobjects.test.company{
 	entity Department {
 		String name;
 		List[Employee] members [inverse=department];
+		Employee boss;
 	}
 }
+
