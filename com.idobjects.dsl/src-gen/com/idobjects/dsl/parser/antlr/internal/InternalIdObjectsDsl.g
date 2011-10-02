@@ -211,10 +211,10 @@ ruleEntity returns [EObject current=null]
     {
     	newLeafNode(otherlv_2, grammarAccess.getEntityAccess().getLeftCurlyBracketKeyword_2());
     }
-(
+((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getEntityAccess().getPropertiesEntityPropertyParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getEntityAccess().getPropertiesEntityPropertyParserRuleCall_3_0_0()); 
 	    }
 		lv_properties_3_0=ruleEntityProperty		{
 	        if ($current==null) {
@@ -229,10 +229,11 @@ ruleEntity returns [EObject current=null]
 	    }
 
 )
-)*(
+)
+    |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getEntityAccess().getReferencesEntityReferenceParserRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getEntityAccess().getReferencesEntityReferenceParserRuleCall_3_1_0()); 
 	    }
 		lv_references_4_0=ruleEntityReference		{
 	        if ($current==null) {
@@ -247,9 +248,9 @@ ruleEntity returns [EObject current=null]
 	    }
 
 )
-)*	otherlv_5='}' 
+))*	otherlv_5='}' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_5());
+    	newLeafNode(otherlv_5, grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_4());
     }
 )
 ;

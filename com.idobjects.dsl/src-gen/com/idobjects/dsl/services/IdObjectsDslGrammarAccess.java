@@ -80,17 +80,18 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cPropertiesAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cPropertiesEntityPropertyParserRuleCall_3_0 = (RuleCall)cPropertiesAssignment_3.eContents().get(0);
-		private final Assignment cReferencesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cReferencesEntityReferenceParserRuleCall_4_0 = (RuleCall)cReferencesAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Assignment cPropertiesAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
+		private final RuleCall cPropertiesEntityPropertyParserRuleCall_3_0_0 = (RuleCall)cPropertiesAssignment_3_0.eContents().get(0);
+		private final Assignment cReferencesAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
+		private final RuleCall cReferencesEntityReferenceParserRuleCall_3_1_0 = (RuleCall)cReferencesAssignment_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Entity:
-		//	"entity" name=ID "{" properties+=EntityProperty* references+=EntityReference* "}";
+		//	"entity" name=ID "{" (properties+=EntityProperty | references+=EntityReference)* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"entity" name=ID "{" properties+=EntityProperty* references+=EntityReference* "}"
+		//"entity" name=ID "{" (properties+=EntityProperty | references+=EntityReference)* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"entity"
@@ -105,20 +106,23 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//properties+=EntityProperty*
-		public Assignment getPropertiesAssignment_3() { return cPropertiesAssignment_3; }
+		//(properties+=EntityProperty | references+=EntityReference)*
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+
+		//properties+=EntityProperty
+		public Assignment getPropertiesAssignment_3_0() { return cPropertiesAssignment_3_0; }
 
 		//EntityProperty
-		public RuleCall getPropertiesEntityPropertyParserRuleCall_3_0() { return cPropertiesEntityPropertyParserRuleCall_3_0; }
+		public RuleCall getPropertiesEntityPropertyParserRuleCall_3_0_0() { return cPropertiesEntityPropertyParserRuleCall_3_0_0; }
 
-		//references+=EntityReference*
-		public Assignment getReferencesAssignment_4() { return cReferencesAssignment_4; }
+		//references+=EntityReference
+		public Assignment getReferencesAssignment_3_1() { return cReferencesAssignment_3_1; }
 
 		//EntityReference
-		public RuleCall getReferencesEntityReferenceParserRuleCall_4_0() { return cReferencesEntityReferenceParserRuleCall_4_0; }
+		public RuleCall getReferencesEntityReferenceParserRuleCall_3_1_0() { return cReferencesEntityReferenceParserRuleCall_3_1_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 
 	public class EntityReferenceElements extends AbstractParserRuleElementFinder {
@@ -460,7 +464,7 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Entity:
-	//	"entity" name=ID "{" properties+=EntityProperty* references+=EntityReference* "}";
+	//	"entity" name=ID "{" (properties+=EntityProperty | references+=EntityReference)* "}";
 	public EntityElements getEntityAccess() {
 		return (pEntity != null) ? pEntity : (pEntity = new EntityElements());
 	}

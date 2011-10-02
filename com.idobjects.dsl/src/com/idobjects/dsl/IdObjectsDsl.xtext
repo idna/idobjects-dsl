@@ -4,58 +4,43 @@ generate idObjectsDsl "http://www.idobjects.com/IdObjectsDsl"
 
 Model:
 	packages+=Package*;
-	
-	
-Package: 'package' name=PackageName '{'
-	entities += Entity*
+
+Package:
+	'package' name=PackageName '{'
+	entities+=Entity*
 	'}';
-	
+
 Entity:
 	'entity' name=ID '{'
-		properties += EntityProperty*
-		references +=EntityReference*
-	'}'
-;
+	(properties+=EntityProperty | references+=EntityReference)*
+	'}';
 
 EntityReference:
-	('List['listDestination=[Entity] ']' 
+	('List[' listDestination=[Entity] ']'
 	|
-	singleDestination=[Entity]) 
-	
+	singleDestination=[Entity])
 	name=ID
-	
-	('[inverse='inverseName=ID']')?
-	
-	';' 
-;
-
+	('[inverse=' inverseName=ID ']')?
+	';';
 
 AbstractReference:
-	name=ID
-;
+	name=ID;
 
 EntityProperty:
-	propertyType=BasicType name=ID ';'
-;
+	propertyType=BasicType name=ID ';';
 
 PackageName:
-	ID ('.'ID)*
-;
+	ID ('.' ID)*;
 
 BasicType:
-	PrimitiveTypes | WrapperTypes | DirectSupportedTypes
-	
-;
+	PrimitiveTypes | WrapperTypes | DirectSupportedTypes;
 
 DirectSupportedTypes:
-	'String' 
-;
-	
+	'String';
+
 WrapperTypes:
-	'Byte' | 'Short' | 'Integer' | 'Long' | 'Float' | 'Double' | 'Boolean' | 'Character'
-;	
-	
+	'Byte' | 'Short' | 'Integer' | 'Long' | 'Float' | 'Double' | 'Boolean' | 'Character';
+
 PrimitiveTypes:
-	'byte' | 'short' | 'int' | 'long' | 'float' | 'double' | 'boolean' | 'char'
-;
+	'byte' | 'short' | 'int' | 'long' | 'float' | 'double' | 'boolean' | 'char';
 
