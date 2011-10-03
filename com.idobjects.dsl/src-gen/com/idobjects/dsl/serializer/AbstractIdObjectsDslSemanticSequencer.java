@@ -150,10 +150,11 @@ public class AbstractIdObjectsDslSemanticSequencer extends AbstractSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=ID (properties+=EntityProperty | references+=EntityReference)*)
+	 *     (name=ID superEntity=[Entity|ID]? (properties+=EntityProperty | references+=EntityReference)*)
 	 *
 	 * Features:
 	 *    name[1, 1]
+	 *    superEntity[0, 1]
 	 *    properties[0, *]
 	 *    references[0, *]
 	 */

@@ -37,13 +37,15 @@ public class IdObjectsDslParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getEntityAccess().getAlternatives_3(), "rule__Entity__Alternatives_3");
+					put(grammarAccess.getEntityAccess().getAlternatives_4(), "rule__Entity__Alternatives_4");
 					put(grammarAccess.getEntityReferenceAccess().getAlternatives_0(), "rule__EntityReference__Alternatives_0");
 					put(grammarAccess.getBasicTypeAccess().getAlternatives(), "rule__BasicType__Alternatives");
+					put(grammarAccess.getJodaTimeTypesAccess().getAlternatives(), "rule__JodaTimeTypes__Alternatives");
 					put(grammarAccess.getWrapperTypesAccess().getAlternatives(), "rule__WrapperTypes__Alternatives");
 					put(grammarAccess.getPrimitiveTypesAccess().getAlternatives(), "rule__PrimitiveTypes__Alternatives");
 					put(grammarAccess.getPackageAccess().getGroup(), "rule__Package__Group__0");
 					put(grammarAccess.getEntityAccess().getGroup(), "rule__Entity__Group__0");
+					put(grammarAccess.getEntityAccess().getGroup_2(), "rule__Entity__Group_2__0");
 					put(grammarAccess.getEntityReferenceAccess().getGroup(), "rule__EntityReference__Group__0");
 					put(grammarAccess.getEntityReferenceAccess().getGroup_0_0(), "rule__EntityReference__Group_0_0__0");
 					put(grammarAccess.getEntityReferenceAccess().getGroup_2(), "rule__EntityReference__Group_2__0");
@@ -54,8 +56,9 @@ public class IdObjectsDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPackageAccess().getNameAssignment_1(), "rule__Package__NameAssignment_1");
 					put(grammarAccess.getPackageAccess().getEntitiesAssignment_3(), "rule__Package__EntitiesAssignment_3");
 					put(grammarAccess.getEntityAccess().getNameAssignment_1(), "rule__Entity__NameAssignment_1");
-					put(grammarAccess.getEntityAccess().getPropertiesAssignment_3_0(), "rule__Entity__PropertiesAssignment_3_0");
-					put(grammarAccess.getEntityAccess().getReferencesAssignment_3_1(), "rule__Entity__ReferencesAssignment_3_1");
+					put(grammarAccess.getEntityAccess().getSuperEntityAssignment_2_1(), "rule__Entity__SuperEntityAssignment_2_1");
+					put(grammarAccess.getEntityAccess().getPropertiesAssignment_4_0(), "rule__Entity__PropertiesAssignment_4_0");
+					put(grammarAccess.getEntityAccess().getReferencesAssignment_4_1(), "rule__Entity__ReferencesAssignment_4_1");
 					put(grammarAccess.getEntityReferenceAccess().getListDestinationAssignment_0_0_1(), "rule__EntityReference__ListDestinationAssignment_0_0_1");
 					put(grammarAccess.getEntityReferenceAccess().getSingleDestinationAssignment_0_1(), "rule__EntityReference__SingleDestinationAssignment_0_1");
 					put(grammarAccess.getEntityReferenceAccess().getNameAssignment_1(), "rule__EntityReference__NameAssignment_1");

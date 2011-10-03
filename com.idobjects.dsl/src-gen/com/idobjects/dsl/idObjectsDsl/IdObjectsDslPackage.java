@@ -144,13 +144,22 @@ public interface IdObjectsDslPackage extends EPackage
   int ENTITY__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Super Entity</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY__SUPER_ENTITY = 1;
+
+  /**
    * The feature id for the '<em><b>Properties</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENTITY__PROPERTIES = 1;
+  int ENTITY__PROPERTIES = 2;
 
   /**
    * The feature id for the '<em><b>References</b></em>' containment reference list.
@@ -159,7 +168,7 @@ public interface IdObjectsDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENTITY__REFERENCES = 2;
+  int ENTITY__REFERENCES = 3;
 
   /**
    * The number of structural features of the '<em>Entity</em>' class.
@@ -168,7 +177,7 @@ public interface IdObjectsDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENTITY_FEATURE_COUNT = 3;
+  int ENTITY_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link com.idobjects.dsl.idObjectsDsl.impl.EntityReferenceImpl <em>Entity Reference</em>}' class.
@@ -364,6 +373,17 @@ public interface IdObjectsDslPackage extends EPackage
    * @generated
    */
   EAttribute getEntity_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link com.idobjects.dsl.idObjectsDsl.Entity#getSuperEntity <em>Super Entity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Super Entity</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.Entity#getSuperEntity()
+   * @see #getEntity()
+   * @generated
+   */
+  EReference getEntity_SuperEntity();
 
   /**
    * Returns the meta object for the containment reference list '{@link com.idobjects.dsl.idObjectsDsl.Entity#getProperties <em>Properties</em>}'.
@@ -578,6 +598,14 @@ public interface IdObjectsDslPackage extends EPackage
      * @generated
      */
     EAttribute ENTITY__NAME = eINSTANCE.getEntity_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Super Entity</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENTITY__SUPER_ENTITY = eINSTANCE.getEntity_SuperEntity();
 
     /**
      * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.

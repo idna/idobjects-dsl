@@ -6,7 +6,10 @@
 			
 		package «packageName()»;
 		
-		«EXPAND Imports FOR this»
+		«FOREACH importsMD() AS import»
+			import «import»;
+		«ENDFOREACH»
+
 		
 		public final class «name»MD extends IdObjectMD{
 
@@ -51,16 +54,7 @@
 	«ENDFILE»
 «ENDDEFINE»
 
-«DEFINE Imports FOR Entity»
-		import java.util.ArrayList;
-		import java.util.Collections;
-		import java.util.List;
 
-		import com.idobjects.api.md.IdObjectMD;
-		import com.idobjects.api.md.IdObjectPropertyMD;
-		import com.idobjects.api.md.IdObjectReferenceMD;
-		import com.idobjects.api.md.ReferenceType;
-«ENDDEFINE»
 
 «DEFINE Reference FOR EntityReference»
 	  public static final IdObjectReferenceMD «staticName()» = new IdObjectReferenceMD( «entityName()»MD.class, «destinationName()»MD.class, "«name»", "«inverseName()»",«hasInverse()» , ReferenceType.«referenceType()»,

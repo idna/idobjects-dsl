@@ -75,3 +75,14 @@ String packageName(Entity e):
   String removeNameCollection(EntityReference r):
  JAVA util.TemplateUtil.removeNameCollection(com.idobjects.dsl.idObjectsDsl.EntityReference); 
  
+ 
+Collection imports(Entity e):
+ JAVA util.TemplateUtil.imports(com.idobjects.dsl.idObjectsDsl.Entity);
+ 
+ Collection importsMD(Entity e):
+ JAVA util.TemplateUtil.importsMD(com.idobjects.dsl.idObjectsDsl.Entity);
+ 
+ String superClass(Entity e):
+ JAVA util.TemplateUtil.superClass(com.idobjects.dsl.idObjectsDsl.Entity);
+ 
+ 

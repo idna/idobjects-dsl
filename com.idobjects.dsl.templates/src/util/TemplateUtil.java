@@ -1,14 +1,14 @@
 package util;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
-import javax.management.RuntimeErrorException;
-
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
+import com.idobjects.api.AbstractIdObject;
 import com.idobjects.api.md.ReferenceType;
 import com.idobjects.dsl.idObjectsDsl.Entity;
 import com.idobjects.dsl.idObjectsDsl.EntityProperty;
@@ -215,6 +215,41 @@ public class TemplateUtil{
     public String removeNameCollection( EntityReference reference ){
         String suffix = firstLetterUp( reference.getName() );
         return "remove" + suffix;
+    }
+
+    public List<String> imports( Entity e ){
+        List<String> result = new ArrayList<String>();
+        result.add( "java.util.Collection" );
+        result.add( "java.util.List" );
+
+        result.add( "com.idobjects.api.AbstractIdObject" );
+        result.add( "com.idobjects.api.ModelScope" );
+        result.add( "com.idobjects.api.ObjectIdentifier" );
+
+        result.add( "org.joda.time.Instant" );
+        result.add( "org.joda.time.DateTime" );
+        return result;
+    }
+
+    public List<String> importsMD( Entity e ){
+        List<String> result = new ArrayList<String>();
+        result.add( "java.util.Collections" );
+        result.add( "java.util.List" );
+        result.add( "java.util.ArrayList" );
+
+        result.add( "com.idobjects.api.md.IdObjectMD" );
+        result.add( "com.idobjects.api.md.IdObjectPropertyMD" );
+        result.add( "com.idobjects.api.md.IdObjectReferenceMD" );
+        result.add( "com.idobjects.api.md.ReferenceType" );
+
+        result.add( "org.joda.time.Instant" );
+        result.add( "org.joda.time.DateTime" );
+        return result;
+    }
+
+    public String superClass( Entity e ){
+        if( e.getSuperEntity() == null ) return AbstractIdObject.class.getSimpleName();
+        return e.getSuperEntity().getName();
     }
 
 }

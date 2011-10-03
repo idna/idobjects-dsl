@@ -11,7 +11,7 @@ Package:
 	'}';
 
 Entity:
-	'entity' name=ID '{'
+	'entity' name=ID ('extends' superEntity=[Entity])? '{'
 	(properties+=EntityProperty | references+=EntityReference)*
 	'}';
 
@@ -33,7 +33,10 @@ PackageName:
 	ID ('.' ID)*;
 
 BasicType:
-	PrimitiveTypes | WrapperTypes | DirectSupportedTypes;
+	PrimitiveTypes | WrapperTypes | DirectSupportedTypes | JodaTimeTypes;
+
+JodaTimeTypes:
+	'DateTime' | 'Instant';
 
 DirectSupportedTypes:
 	'String';

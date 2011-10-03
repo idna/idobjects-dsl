@@ -208,7 +208,7 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getEntity_Properties()
+  public EReference getEntity_SuperEntity()
   {
     return (EReference)entityEClass.getEStructuralFeatures().get(1);
   }
@@ -218,9 +218,19 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getEntity_References()
+  public EReference getEntity_Properties()
   {
     return (EReference)entityEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEntity_References()
+  {
+    return (EReference)entityEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -362,6 +372,7 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
 
     entityEClass = createEClass(ENTITY);
     createEAttribute(entityEClass, ENTITY__NAME);
+    createEReference(entityEClass, ENTITY__SUPER_ENTITY);
     createEReference(entityEClass, ENTITY__PROPERTIES);
     createEReference(entityEClass, ENTITY__REFERENCES);
 
@@ -419,6 +430,7 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
 
     initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEntity_Name(), ecorePackage.getEString(), "name", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEntity_SuperEntity(), this.getEntity(), null, "superEntity", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntity_Properties(), this.getEntityProperty(), null, "properties", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntity_References(), this.getEntityReference(), null, "references", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

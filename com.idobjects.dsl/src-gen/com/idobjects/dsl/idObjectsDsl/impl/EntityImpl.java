@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.idobjects.dsl.idObjectsDsl.impl.EntityImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.idobjects.dsl.idObjectsDsl.impl.EntityImpl#getSuperEntity <em>Super Entity</em>}</li>
  *   <li>{@link com.idobjects.dsl.idObjectsDsl.impl.EntityImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link com.idobjects.dsl.idObjectsDsl.impl.EntityImpl#getReferences <em>References</em>}</li>
  * </ul>
@@ -62,6 +63,16 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getSuperEntity() <em>Super Entity</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSuperEntity()
+   * @generated
+   * @ordered
+   */
+  protected Entity superEntity;
 
   /**
    * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
@@ -132,6 +143,49 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
    * <!-- end-user-doc -->
    * @generated
    */
+  public Entity getSuperEntity()
+  {
+    if (superEntity != null && superEntity.eIsProxy())
+    {
+      InternalEObject oldSuperEntity = (InternalEObject)superEntity;
+      superEntity = (Entity)eResolveProxy(oldSuperEntity);
+      if (superEntity != oldSuperEntity)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, IdObjectsDslPackage.ENTITY__SUPER_ENTITY, oldSuperEntity, superEntity));
+      }
+    }
+    return superEntity;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Entity basicGetSuperEntity()
+  {
+    return superEntity;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSuperEntity(Entity newSuperEntity)
+  {
+    Entity oldSuperEntity = superEntity;
+    superEntity = newSuperEntity;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, IdObjectsDslPackage.ENTITY__SUPER_ENTITY, oldSuperEntity, superEntity));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<EntityProperty> getProperties()
   {
     if (properties == null)
@@ -185,6 +239,9 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
     {
       case IdObjectsDslPackage.ENTITY__NAME:
         return getName();
+      case IdObjectsDslPackage.ENTITY__SUPER_ENTITY:
+        if (resolve) return getSuperEntity();
+        return basicGetSuperEntity();
       case IdObjectsDslPackage.ENTITY__PROPERTIES:
         return getProperties();
       case IdObjectsDslPackage.ENTITY__REFERENCES:
@@ -206,6 +263,9 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
     {
       case IdObjectsDslPackage.ENTITY__NAME:
         setName((String)newValue);
+        return;
+      case IdObjectsDslPackage.ENTITY__SUPER_ENTITY:
+        setSuperEntity((Entity)newValue);
         return;
       case IdObjectsDslPackage.ENTITY__PROPERTIES:
         getProperties().clear();
@@ -232,6 +292,9 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
       case IdObjectsDslPackage.ENTITY__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case IdObjectsDslPackage.ENTITY__SUPER_ENTITY:
+        setSuperEntity((Entity)null);
+        return;
       case IdObjectsDslPackage.ENTITY__PROPERTIES:
         getProperties().clear();
         return;
@@ -254,6 +317,8 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
     {
       case IdObjectsDslPackage.ENTITY__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case IdObjectsDslPackage.ENTITY__SUPER_ENTITY:
+        return superEntity != null;
       case IdObjectsDslPackage.ENTITY__PROPERTIES:
         return properties != null && !properties.isEmpty();
       case IdObjectsDslPackage.ENTITY__REFERENCES:

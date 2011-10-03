@@ -79,19 +79,25 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEntityKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
-		private final Assignment cPropertiesAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
-		private final RuleCall cPropertiesEntityPropertyParserRuleCall_3_0_0 = (RuleCall)cPropertiesAssignment_3_0.eContents().get(0);
-		private final Assignment cReferencesAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
-		private final RuleCall cReferencesEntityReferenceParserRuleCall_3_1_0 = (RuleCall)cReferencesAssignment_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cExtendsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cSuperEntityAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final CrossReference cSuperEntityEntityCrossReference_2_1_0 = (CrossReference)cSuperEntityAssignment_2_1.eContents().get(0);
+		private final RuleCall cSuperEntityEntityIDTerminalRuleCall_2_1_0_1 = (RuleCall)cSuperEntityEntityCrossReference_2_1_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
+		private final Assignment cPropertiesAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
+		private final RuleCall cPropertiesEntityPropertyParserRuleCall_4_0_0 = (RuleCall)cPropertiesAssignment_4_0.eContents().get(0);
+		private final Assignment cReferencesAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
+		private final RuleCall cReferencesEntityReferenceParserRuleCall_4_1_0 = (RuleCall)cReferencesAssignment_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Entity:
-		//	"entity" name=ID "{" (properties+=EntityProperty | references+=EntityReference)* "}";
+		//	"entity" name=ID ("extends" superEntity=[Entity])? "{" (properties+=EntityProperty | references+=EntityReference)*
+		//	"}";
 		public ParserRule getRule() { return rule; }
 
-		//"entity" name=ID "{" (properties+=EntityProperty | references+=EntityReference)* "}"
+		//"entity" name=ID ("extends" superEntity=[Entity])? "{" (properties+=EntityProperty | references+=EntityReference)* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"entity"
@@ -103,26 +109,41 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
+		//("extends" superEntity=[Entity])?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"extends"
+		public Keyword getExtendsKeyword_2_0() { return cExtendsKeyword_2_0; }
+
+		//superEntity=[Entity]
+		public Assignment getSuperEntityAssignment_2_1() { return cSuperEntityAssignment_2_1; }
+
+		//[Entity]
+		public CrossReference getSuperEntityEntityCrossReference_2_1_0() { return cSuperEntityEntityCrossReference_2_1_0; }
+
+		//ID
+		public RuleCall getSuperEntityEntityIDTerminalRuleCall_2_1_0_1() { return cSuperEntityEntityIDTerminalRuleCall_2_1_0_1; }
+
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
 		//(properties+=EntityProperty | references+=EntityReference)*
-		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 
 		//properties+=EntityProperty
-		public Assignment getPropertiesAssignment_3_0() { return cPropertiesAssignment_3_0; }
+		public Assignment getPropertiesAssignment_4_0() { return cPropertiesAssignment_4_0; }
 
 		//EntityProperty
-		public RuleCall getPropertiesEntityPropertyParserRuleCall_3_0_0() { return cPropertiesEntityPropertyParserRuleCall_3_0_0; }
+		public RuleCall getPropertiesEntityPropertyParserRuleCall_4_0_0() { return cPropertiesEntityPropertyParserRuleCall_4_0_0; }
 
 		//references+=EntityReference
-		public Assignment getReferencesAssignment_3_1() { return cReferencesAssignment_3_1; }
+		public Assignment getReferencesAssignment_4_1() { return cReferencesAssignment_4_1; }
 
 		//EntityReference
-		public RuleCall getReferencesEntityReferenceParserRuleCall_3_1_0() { return cReferencesEntityReferenceParserRuleCall_3_1_0; }
+		public RuleCall getReferencesEntityReferenceParserRuleCall_4_1_0() { return cReferencesEntityReferenceParserRuleCall_4_1_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
 	public class EntityReferenceElements extends AbstractParserRuleElementFinder {
@@ -291,12 +312,13 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPrimitiveTypesParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cWrapperTypesParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cDirectSupportedTypesParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cJodaTimeTypesParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//BasicType:
-		//	PrimitiveTypes | WrapperTypes | DirectSupportedTypes;
+		//	PrimitiveTypes | WrapperTypes | DirectSupportedTypes | JodaTimeTypes;
 		public ParserRule getRule() { return rule; }
 
-		//PrimitiveTypes | WrapperTypes | DirectSupportedTypes
+		//PrimitiveTypes | WrapperTypes | DirectSupportedTypes | JodaTimeTypes
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//PrimitiveTypes
@@ -307,6 +329,29 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 
 		//DirectSupportedTypes
 		public RuleCall getDirectSupportedTypesParserRuleCall_2() { return cDirectSupportedTypesParserRuleCall_2; }
+
+		//JodaTimeTypes
+		public RuleCall getJodaTimeTypesParserRuleCall_3() { return cJodaTimeTypesParserRuleCall_3; }
+	}
+
+	public class JodaTimeTypesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "JodaTimeTypes");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cDateTimeKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cInstantKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//JodaTimeTypes:
+		//	"DateTime" | "Instant";
+		public ParserRule getRule() { return rule; }
+
+		//"DateTime" | "Instant"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//"DateTime"
+		public Keyword getDateTimeKeyword_0() { return cDateTimeKeyword_0; }
+
+		//"Instant"
+		public Keyword getInstantKeyword_1() { return cInstantKeyword_1; }
 	}
 
 	public class DirectSupportedTypesElements extends AbstractParserRuleElementFinder {
@@ -418,6 +463,7 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 	private EntityPropertyElements pEntityProperty;
 	private PackageNameElements pPackageName;
 	private BasicTypeElements pBasicType;
+	private JodaTimeTypesElements pJodaTimeTypes;
 	private DirectSupportedTypesElements pDirectSupportedTypes;
 	private WrapperTypesElements pWrapperTypes;
 	private PrimitiveTypesElements pPrimitiveTypes;
@@ -464,7 +510,8 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Entity:
-	//	"entity" name=ID "{" (properties+=EntityProperty | references+=EntityReference)* "}";
+	//	"entity" name=ID ("extends" superEntity=[Entity])? "{" (properties+=EntityProperty | references+=EntityReference)*
+	//	"}";
 	public EntityElements getEntityAccess() {
 		return (pEntity != null) ? pEntity : (pEntity = new EntityElements());
 	}
@@ -514,13 +561,23 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BasicType:
-	//	PrimitiveTypes | WrapperTypes | DirectSupportedTypes;
+	//	PrimitiveTypes | WrapperTypes | DirectSupportedTypes | JodaTimeTypes;
 	public BasicTypeElements getBasicTypeAccess() {
 		return (pBasicType != null) ? pBasicType : (pBasicType = new BasicTypeElements());
 	}
 	
 	public ParserRule getBasicTypeRule() {
 		return getBasicTypeAccess().getRule();
+	}
+
+	//JodaTimeTypes:
+	//	"DateTime" | "Instant";
+	public JodaTimeTypesElements getJodaTimeTypesAccess() {
+		return (pJodaTimeTypes != null) ? pJodaTimeTypes : (pJodaTimeTypes = new JodaTimeTypesElements());
+	}
+	
+	public ParserRule getJodaTimeTypesRule() {
+		return getJodaTimeTypesAccess().getRule();
 	}
 
 	//DirectSupportedTypes:

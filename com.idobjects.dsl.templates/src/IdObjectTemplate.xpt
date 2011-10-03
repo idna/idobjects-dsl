@@ -6,15 +6,12 @@
 			
 		package «packageName()»;
 		
-		import java.util.Collection;
-		import java.util.List;
-		
-		import com.idobjects.api.AbstractIdObject;
-		import com.idobjects.api.ModelScope;
-		import com.idobjects.api.ObjectIdentifier;
+		«FOREACH imports() AS import»
+			import «import»;
+		«ENDFOREACH»
 		
 		
-		public class «name» extends AbstractIdObject {
+		public class «name» extends «superClass()» {
 	
 		public «name»(ModelScope modelScope, ObjectIdentifier objectId) {
 			super(modelScope, objectId);

@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link com.idobjects.dsl.idObjectsDsl.Entity#getName <em>Name</em>}</li>
+ *   <li>{@link com.idobjects.dsl.idObjectsDsl.Entity#getSuperEntity <em>Super Entity</em>}</li>
  *   <li>{@link com.idobjects.dsl.idObjectsDsl.Entity#getProperties <em>Properties</em>}</li>
  *   <li>{@link com.idobjects.dsl.idObjectsDsl.Entity#getReferences <em>References</em>}</li>
  * </ul>
@@ -54,6 +55,32 @@ public interface Entity extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Super Entity</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Super Entity</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Super Entity</em>' reference.
+   * @see #setSuperEntity(Entity)
+   * @see com.idobjects.dsl.idObjectsDsl.IdObjectsDslPackage#getEntity_SuperEntity()
+   * @model
+   * @generated
+   */
+  Entity getSuperEntity();
+
+  /**
+   * Sets the value of the '{@link com.idobjects.dsl.idObjectsDsl.Entity#getSuperEntity <em>Super Entity</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Super Entity</em>' reference.
+   * @see #getSuperEntity()
+   * @generated
+   */
+  void setSuperEntity(Entity value);
 
   /**
    * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
