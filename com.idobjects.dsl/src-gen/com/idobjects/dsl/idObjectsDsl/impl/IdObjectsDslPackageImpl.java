@@ -5,13 +5,17 @@
  */
 package com.idobjects.dsl.idObjectsDsl.impl;
 
-import com.idobjects.dsl.idObjectsDsl.AbstractReference;
 import com.idobjects.dsl.idObjectsDsl.Entity;
 import com.idobjects.dsl.idObjectsDsl.EntityProperty;
 import com.idobjects.dsl.idObjectsDsl.EntityReference;
 import com.idobjects.dsl.idObjectsDsl.IdObjectsDslFactory;
 import com.idobjects.dsl.idObjectsDsl.IdObjectsDslPackage;
 import com.idobjects.dsl.idObjectsDsl.Model;
+import com.idobjects.dsl.idObjectsDsl.Persistence;
+import com.idobjects.dsl.idObjectsDsl.PersistenceEntity;
+import com.idobjects.dsl.idObjectsDsl.PersistencePackage;
+import com.idobjects.dsl.idObjectsDsl.PersistenceProperty;
+import com.idobjects.dsl.idObjectsDsl.PersistencePropertyConfig;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -61,7 +65,35 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass abstractReferenceEClass = null;
+  private EClass persistenceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass persistencePackageEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass persistenceEntityEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass persistencePropertyEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass persistencePropertyConfigEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -148,9 +180,29 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getModel_Name()
+  {
+    return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getModel_Packages()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(0);
+    return (EReference)modelEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModel_PersistenceModel()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -208,7 +260,7 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getEntity_SuperEntity()
+  public EReference getEntity_Properties()
   {
     return (EReference)entityEClass.getEStructuralFeatures().get(1);
   }
@@ -218,19 +270,9 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getEntity_Properties()
-  {
-    return (EReference)entityEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getEntity_References()
   {
-    return (EReference)entityEClass.getEStructuralFeatures().get(3);
+    return (EReference)entityEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -288,9 +330,9 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAbstractReference()
+  public EClass getPersistence()
   {
-    return abstractReferenceEClass;
+    return persistenceEClass;
   }
 
   /**
@@ -298,9 +340,129 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAbstractReference_Name()
+  public EReference getPersistence_PersistencePackage()
   {
-    return (EAttribute)abstractReferenceEClass.getEStructuralFeatures().get(0);
+    return (EReference)persistenceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPersistencePackage()
+  {
+    return persistencePackageEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPersistencePackage_Name()
+  {
+    return (EAttribute)persistencePackageEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPersistencePackage_PersistenceEntities()
+  {
+    return (EReference)persistencePackageEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPersistenceEntity()
+  {
+    return persistenceEntityEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPersistenceEntity_Name()
+  {
+    return (EAttribute)persistenceEntityEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPersistenceEntity_PersistenceProperties()
+  {
+    return (EReference)persistenceEntityEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPersistenceProperty()
+  {
+    return persistencePropertyEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPersistenceProperty_Name()
+  {
+    return (EAttribute)persistencePropertyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPersistenceProperty_Config()
+  {
+    return (EReference)persistencePropertyEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPersistencePropertyConfig()
+  {
+    return persistencePropertyConfigEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPersistencePropertyConfig_PropertyConfigKey()
+  {
+    return (EAttribute)persistencePropertyConfigEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPersistencePropertyConfig_PropertyConfigValue()
+  {
+    return (EAttribute)persistencePropertyConfigEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -364,7 +526,9 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
+    createEAttribute(modelEClass, MODEL__NAME);
     createEReference(modelEClass, MODEL__PACKAGES);
+    createEReference(modelEClass, MODEL__PERSISTENCE_MODEL);
 
     packageEClass = createEClass(PACKAGE);
     createEAttribute(packageEClass, PACKAGE__NAME);
@@ -372,7 +536,6 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
 
     entityEClass = createEClass(ENTITY);
     createEAttribute(entityEClass, ENTITY__NAME);
-    createEReference(entityEClass, ENTITY__SUPER_ENTITY);
     createEReference(entityEClass, ENTITY__PROPERTIES);
     createEReference(entityEClass, ENTITY__REFERENCES);
 
@@ -382,8 +545,24 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
     createEAttribute(entityReferenceEClass, ENTITY_REFERENCE__NAME);
     createEAttribute(entityReferenceEClass, ENTITY_REFERENCE__INVERSE_NAME);
 
-    abstractReferenceEClass = createEClass(ABSTRACT_REFERENCE);
-    createEAttribute(abstractReferenceEClass, ABSTRACT_REFERENCE__NAME);
+    persistenceEClass = createEClass(PERSISTENCE);
+    createEReference(persistenceEClass, PERSISTENCE__PERSISTENCE_PACKAGE);
+
+    persistencePackageEClass = createEClass(PERSISTENCE_PACKAGE);
+    createEAttribute(persistencePackageEClass, PERSISTENCE_PACKAGE__NAME);
+    createEReference(persistencePackageEClass, PERSISTENCE_PACKAGE__PERSISTENCE_ENTITIES);
+
+    persistenceEntityEClass = createEClass(PERSISTENCE_ENTITY);
+    createEAttribute(persistenceEntityEClass, PERSISTENCE_ENTITY__NAME);
+    createEReference(persistenceEntityEClass, PERSISTENCE_ENTITY__PERSISTENCE_PROPERTIES);
+
+    persistencePropertyEClass = createEClass(PERSISTENCE_PROPERTY);
+    createEAttribute(persistencePropertyEClass, PERSISTENCE_PROPERTY__NAME);
+    createEReference(persistencePropertyEClass, PERSISTENCE_PROPERTY__CONFIG);
+
+    persistencePropertyConfigEClass = createEClass(PERSISTENCE_PROPERTY_CONFIG);
+    createEAttribute(persistencePropertyConfigEClass, PERSISTENCE_PROPERTY_CONFIG__PROPERTY_CONFIG_KEY);
+    createEAttribute(persistencePropertyConfigEClass, PERSISTENCE_PROPERTY_CONFIG__PROPERTY_CONFIG_VALUE);
 
     entityPropertyEClass = createEClass(ENTITY_PROPERTY);
     createEAttribute(entityPropertyEClass, ENTITY_PROPERTY__PROPERTY_TYPE);
@@ -422,7 +601,9 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Packages(), this.getPackage(), null, "packages", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_PersistenceModel(), this.getPersistence(), null, "persistenceModel", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(packageEClass, com.idobjects.dsl.idObjectsDsl.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, com.idobjects.dsl.idObjectsDsl.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -430,7 +611,6 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
 
     initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEntity_Name(), ecorePackage.getEString(), "name", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEntity_SuperEntity(), this.getEntity(), null, "superEntity", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntity_Properties(), this.getEntityProperty(), null, "properties", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntity_References(), this.getEntityReference(), null, "references", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -440,8 +620,24 @@ public class IdObjectsDslPackageImpl extends EPackageImpl implements IdObjectsDs
     initEAttribute(getEntityReference_Name(), ecorePackage.getEString(), "name", null, 0, 1, EntityReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEntityReference_InverseName(), ecorePackage.getEString(), "inverseName", null, 0, 1, EntityReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(abstractReferenceEClass, AbstractReference.class, "AbstractReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAbstractReference_Name(), ecorePackage.getEString(), "name", null, 0, 1, AbstractReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(persistenceEClass, Persistence.class, "Persistence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPersistence_PersistencePackage(), this.getPersistencePackage(), null, "persistencePackage", null, 0, -1, Persistence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(persistencePackageEClass, PersistencePackage.class, "PersistencePackage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPersistencePackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, PersistencePackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPersistencePackage_PersistenceEntities(), this.getPersistenceEntity(), null, "persistenceEntities", null, 0, -1, PersistencePackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(persistenceEntityEClass, PersistenceEntity.class, "PersistenceEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPersistenceEntity_Name(), ecorePackage.getEString(), "name", null, 0, 1, PersistenceEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPersistenceEntity_PersistenceProperties(), this.getPersistenceProperty(), null, "persistenceProperties", null, 0, -1, PersistenceEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(persistencePropertyEClass, PersistenceProperty.class, "PersistenceProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPersistenceProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, PersistenceProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPersistenceProperty_Config(), this.getPersistencePropertyConfig(), null, "config", null, 0, -1, PersistenceProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(persistencePropertyConfigEClass, PersistencePropertyConfig.class, "PersistencePropertyConfig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPersistencePropertyConfig_PropertyConfigKey(), ecorePackage.getEString(), "propertyConfigKey", null, 0, 1, PersistencePropertyConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPersistencePropertyConfig_PropertyConfigValue(), ecorePackage.getEString(), "propertyConfigValue", null, 0, 1, PersistencePropertyConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(entityPropertyEClass, EntityProperty.class, "EntityProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEntityProperty_PropertyType(), ecorePackage.getEString(), "propertyType", null, 0, 1, EntityProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -1,8 +1,12 @@
 «IMPORT idObjectsDsl»
 «EXTENSION  util»
 
-«DEFINE main FOR Package»
-	«EXPAND IdObjectTemplate::Entity FOREACH entities» 
-	«EXPAND IdObjectMDTemplate::Entity FOREACH entities»
+«DEFINE main FOR Model»
+	«FOREACH packages AS package»
+		«EXPAND IdObjectTemplate::Entity FOREACH package.entities» 
+		«EXPAND IdObjectMDTemplate::Entity FOREACH package.entities»
+	«ENDFOREACH»
+	«EXPAND ModelMDTemplate::ModelMD FOR this»
 «ENDDEFINE»
+
 

@@ -70,13 +70,31 @@ public interface IdObjectsDslPackage extends EPackage
   int MODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__NAME = 0;
+
+  /**
    * The feature id for the '<em><b>Packages</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__PACKAGES = 0;
+  int MODEL__PACKAGES = 1;
+
+  /**
+   * The feature id for the '<em><b>Persistence Model</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__PERSISTENCE_MODEL = 2;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -85,7 +103,7 @@ public interface IdObjectsDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 1;
+  int MODEL_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link com.idobjects.dsl.idObjectsDsl.impl.PackageImpl <em>Package</em>}' class.
@@ -144,22 +162,13 @@ public interface IdObjectsDslPackage extends EPackage
   int ENTITY__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Super Entity</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENTITY__SUPER_ENTITY = 1;
-
-  /**
    * The feature id for the '<em><b>Properties</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENTITY__PROPERTIES = 2;
+  int ENTITY__PROPERTIES = 1;
 
   /**
    * The feature id for the '<em><b>References</b></em>' containment reference list.
@@ -168,7 +177,7 @@ public interface IdObjectsDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENTITY__REFERENCES = 3;
+  int ENTITY__REFERENCES = 2;
 
   /**
    * The number of structural features of the '<em>Entity</em>' class.
@@ -177,7 +186,7 @@ public interface IdObjectsDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENTITY_FEATURE_COUNT = 4;
+  int ENTITY_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link com.idobjects.dsl.idObjectsDsl.impl.EntityReferenceImpl <em>Entity Reference</em>}' class.
@@ -235,14 +244,42 @@ public interface IdObjectsDslPackage extends EPackage
   int ENTITY_REFERENCE_FEATURE_COUNT = 4;
 
   /**
-   * The meta object id for the '{@link com.idobjects.dsl.idObjectsDsl.impl.AbstractReferenceImpl <em>Abstract Reference</em>}' class.
+   * The meta object id for the '{@link com.idobjects.dsl.idObjectsDsl.impl.PersistenceImpl <em>Persistence</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.idobjects.dsl.idObjectsDsl.impl.AbstractReferenceImpl
-   * @see com.idobjects.dsl.idObjectsDsl.impl.IdObjectsDslPackageImpl#getAbstractReference()
+   * @see com.idobjects.dsl.idObjectsDsl.impl.PersistenceImpl
+   * @see com.idobjects.dsl.idObjectsDsl.impl.IdObjectsDslPackageImpl#getPersistence()
    * @generated
    */
-  int ABSTRACT_REFERENCE = 4;
+  int PERSISTENCE = 4;
+
+  /**
+   * The feature id for the '<em><b>Persistence Package</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSISTENCE__PERSISTENCE_PACKAGE = 0;
+
+  /**
+   * The number of structural features of the '<em>Persistence</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSISTENCE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.idobjects.dsl.idObjectsDsl.impl.PersistencePackageImpl <em>Persistence Package</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.idobjects.dsl.idObjectsDsl.impl.PersistencePackageImpl
+   * @see com.idobjects.dsl.idObjectsDsl.impl.IdObjectsDslPackageImpl#getPersistencePackage()
+   * @generated
+   */
+  int PERSISTENCE_PACKAGE = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -251,16 +288,136 @@ public interface IdObjectsDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ABSTRACT_REFERENCE__NAME = 0;
+  int PERSISTENCE_PACKAGE__NAME = 0;
 
   /**
-   * The number of structural features of the '<em>Abstract Reference</em>' class.
+   * The feature id for the '<em><b>Persistence Entities</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ABSTRACT_REFERENCE_FEATURE_COUNT = 1;
+  int PERSISTENCE_PACKAGE__PERSISTENCE_ENTITIES = 1;
+
+  /**
+   * The number of structural features of the '<em>Persistence Package</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSISTENCE_PACKAGE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.idobjects.dsl.idObjectsDsl.impl.PersistenceEntityImpl <em>Persistence Entity</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.idobjects.dsl.idObjectsDsl.impl.PersistenceEntityImpl
+   * @see com.idobjects.dsl.idObjectsDsl.impl.IdObjectsDslPackageImpl#getPersistenceEntity()
+   * @generated
+   */
+  int PERSISTENCE_ENTITY = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSISTENCE_ENTITY__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Persistence Properties</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSISTENCE_ENTITY__PERSISTENCE_PROPERTIES = 1;
+
+  /**
+   * The number of structural features of the '<em>Persistence Entity</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSISTENCE_ENTITY_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.idobjects.dsl.idObjectsDsl.impl.PersistencePropertyImpl <em>Persistence Property</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.idobjects.dsl.idObjectsDsl.impl.PersistencePropertyImpl
+   * @see com.idobjects.dsl.idObjectsDsl.impl.IdObjectsDslPackageImpl#getPersistenceProperty()
+   * @generated
+   */
+  int PERSISTENCE_PROPERTY = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSISTENCE_PROPERTY__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Config</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSISTENCE_PROPERTY__CONFIG = 1;
+
+  /**
+   * The number of structural features of the '<em>Persistence Property</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSISTENCE_PROPERTY_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.idobjects.dsl.idObjectsDsl.impl.PersistencePropertyConfigImpl <em>Persistence Property Config</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.idobjects.dsl.idObjectsDsl.impl.PersistencePropertyConfigImpl
+   * @see com.idobjects.dsl.idObjectsDsl.impl.IdObjectsDslPackageImpl#getPersistencePropertyConfig()
+   * @generated
+   */
+  int PERSISTENCE_PROPERTY_CONFIG = 8;
+
+  /**
+   * The feature id for the '<em><b>Property Config Key</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSISTENCE_PROPERTY_CONFIG__PROPERTY_CONFIG_KEY = 0;
+
+  /**
+   * The feature id for the '<em><b>Property Config Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSISTENCE_PROPERTY_CONFIG__PROPERTY_CONFIG_VALUE = 1;
+
+  /**
+   * The number of structural features of the '<em>Persistence Property Config</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSISTENCE_PROPERTY_CONFIG_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.idobjects.dsl.idObjectsDsl.impl.EntityPropertyImpl <em>Entity Property</em>}' class.
@@ -270,7 +427,7 @@ public interface IdObjectsDslPackage extends EPackage
    * @see com.idobjects.dsl.idObjectsDsl.impl.IdObjectsDslPackageImpl#getEntityProperty()
    * @generated
    */
-  int ENTITY_PROPERTY = 5;
+  int ENTITY_PROPERTY = 9;
 
   /**
    * The feature id for the '<em><b>Property Type</b></em>' attribute.
@@ -311,6 +468,17 @@ public interface IdObjectsDslPackage extends EPackage
   EClass getModel();
 
   /**
+   * Returns the meta object for the attribute '{@link com.idobjects.dsl.idObjectsDsl.Model#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.Model#getName()
+   * @see #getModel()
+   * @generated
+   */
+  EAttribute getModel_Name();
+
+  /**
    * Returns the meta object for the containment reference list '{@link com.idobjects.dsl.idObjectsDsl.Model#getPackages <em>Packages</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -320,6 +488,17 @@ public interface IdObjectsDslPackage extends EPackage
    * @generated
    */
   EReference getModel_Packages();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.idobjects.dsl.idObjectsDsl.Model#getPersistenceModel <em>Persistence Model</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Persistence Model</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.Model#getPersistenceModel()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_PersistenceModel();
 
   /**
    * Returns the meta object for class '{@link com.idobjects.dsl.idObjectsDsl.Package <em>Package</em>}'.
@@ -373,17 +552,6 @@ public interface IdObjectsDslPackage extends EPackage
    * @generated
    */
   EAttribute getEntity_Name();
-
-  /**
-   * Returns the meta object for the reference '{@link com.idobjects.dsl.idObjectsDsl.Entity#getSuperEntity <em>Super Entity</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Super Entity</em>'.
-   * @see com.idobjects.dsl.idObjectsDsl.Entity#getSuperEntity()
-   * @see #getEntity()
-   * @generated
-   */
-  EReference getEntity_SuperEntity();
 
   /**
    * Returns the meta object for the containment reference list '{@link com.idobjects.dsl.idObjectsDsl.Entity#getProperties <em>Properties</em>}'.
@@ -462,25 +630,153 @@ public interface IdObjectsDslPackage extends EPackage
   EAttribute getEntityReference_InverseName();
 
   /**
-   * Returns the meta object for class '{@link com.idobjects.dsl.idObjectsDsl.AbstractReference <em>Abstract Reference</em>}'.
+   * Returns the meta object for class '{@link com.idobjects.dsl.idObjectsDsl.Persistence <em>Persistence</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Abstract Reference</em>'.
-   * @see com.idobjects.dsl.idObjectsDsl.AbstractReference
+   * @return the meta object for class '<em>Persistence</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.Persistence
    * @generated
    */
-  EClass getAbstractReference();
+  EClass getPersistence();
 
   /**
-   * Returns the meta object for the attribute '{@link com.idobjects.dsl.idObjectsDsl.AbstractReference#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.idobjects.dsl.idObjectsDsl.Persistence#getPersistencePackage <em>Persistence Package</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Persistence Package</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.Persistence#getPersistencePackage()
+   * @see #getPersistence()
+   * @generated
+   */
+  EReference getPersistence_PersistencePackage();
+
+  /**
+   * Returns the meta object for class '{@link com.idobjects.dsl.idObjectsDsl.PersistencePackage <em>Persistence Package</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Persistence Package</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.PersistencePackage
+   * @generated
+   */
+  EClass getPersistencePackage();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.idobjects.dsl.idObjectsDsl.PersistencePackage#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see com.idobjects.dsl.idObjectsDsl.AbstractReference#getName()
-   * @see #getAbstractReference()
+   * @see com.idobjects.dsl.idObjectsDsl.PersistencePackage#getName()
+   * @see #getPersistencePackage()
    * @generated
    */
-  EAttribute getAbstractReference_Name();
+  EAttribute getPersistencePackage_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.idobjects.dsl.idObjectsDsl.PersistencePackage#getPersistenceEntities <em>Persistence Entities</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Persistence Entities</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.PersistencePackage#getPersistenceEntities()
+   * @see #getPersistencePackage()
+   * @generated
+   */
+  EReference getPersistencePackage_PersistenceEntities();
+
+  /**
+   * Returns the meta object for class '{@link com.idobjects.dsl.idObjectsDsl.PersistenceEntity <em>Persistence Entity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Persistence Entity</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.PersistenceEntity
+   * @generated
+   */
+  EClass getPersistenceEntity();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.idobjects.dsl.idObjectsDsl.PersistenceEntity#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.PersistenceEntity#getName()
+   * @see #getPersistenceEntity()
+   * @generated
+   */
+  EAttribute getPersistenceEntity_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.idobjects.dsl.idObjectsDsl.PersistenceEntity#getPersistenceProperties <em>Persistence Properties</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Persistence Properties</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.PersistenceEntity#getPersistenceProperties()
+   * @see #getPersistenceEntity()
+   * @generated
+   */
+  EReference getPersistenceEntity_PersistenceProperties();
+
+  /**
+   * Returns the meta object for class '{@link com.idobjects.dsl.idObjectsDsl.PersistenceProperty <em>Persistence Property</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Persistence Property</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.PersistenceProperty
+   * @generated
+   */
+  EClass getPersistenceProperty();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.idobjects.dsl.idObjectsDsl.PersistenceProperty#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.PersistenceProperty#getName()
+   * @see #getPersistenceProperty()
+   * @generated
+   */
+  EAttribute getPersistenceProperty_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.idobjects.dsl.idObjectsDsl.PersistenceProperty#getConfig <em>Config</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Config</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.PersistenceProperty#getConfig()
+   * @see #getPersistenceProperty()
+   * @generated
+   */
+  EReference getPersistenceProperty_Config();
+
+  /**
+   * Returns the meta object for class '{@link com.idobjects.dsl.idObjectsDsl.PersistencePropertyConfig <em>Persistence Property Config</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Persistence Property Config</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.PersistencePropertyConfig
+   * @generated
+   */
+  EClass getPersistencePropertyConfig();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.idobjects.dsl.idObjectsDsl.PersistencePropertyConfig#getPropertyConfigKey <em>Property Config Key</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Property Config Key</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.PersistencePropertyConfig#getPropertyConfigKey()
+   * @see #getPersistencePropertyConfig()
+   * @generated
+   */
+  EAttribute getPersistencePropertyConfig_PropertyConfigKey();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.idobjects.dsl.idObjectsDsl.PersistencePropertyConfig#getPropertyConfigValue <em>Property Config Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Property Config Value</em>'.
+   * @see com.idobjects.dsl.idObjectsDsl.PersistencePropertyConfig#getPropertyConfigValue()
+   * @see #getPersistencePropertyConfig()
+   * @generated
+   */
+  EAttribute getPersistencePropertyConfig_PropertyConfigValue();
 
   /**
    * Returns the meta object for class '{@link com.idobjects.dsl.idObjectsDsl.EntityProperty <em>Entity Property</em>}'.
@@ -548,12 +844,28 @@ public interface IdObjectsDslPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MODEL__NAME = eINSTANCE.getModel_Name();
+
+    /**
      * The meta object literal for the '<em><b>Packages</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference MODEL__PACKAGES = eINSTANCE.getModel_Packages();
+
+    /**
+     * The meta object literal for the '<em><b>Persistence Model</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__PERSISTENCE_MODEL = eINSTANCE.getModel_PersistenceModel();
 
     /**
      * The meta object literal for the '{@link com.idobjects.dsl.idObjectsDsl.impl.PackageImpl <em>Package</em>}' class.
@@ -598,14 +910,6 @@ public interface IdObjectsDslPackage extends EPackage
      * @generated
      */
     EAttribute ENTITY__NAME = eINSTANCE.getEntity_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Super Entity</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ENTITY__SUPER_ENTITY = eINSTANCE.getEntity_SuperEntity();
 
     /**
      * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
@@ -666,14 +970,32 @@ public interface IdObjectsDslPackage extends EPackage
     EAttribute ENTITY_REFERENCE__INVERSE_NAME = eINSTANCE.getEntityReference_InverseName();
 
     /**
-     * The meta object literal for the '{@link com.idobjects.dsl.idObjectsDsl.impl.AbstractReferenceImpl <em>Abstract Reference</em>}' class.
+     * The meta object literal for the '{@link com.idobjects.dsl.idObjectsDsl.impl.PersistenceImpl <em>Persistence</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.idobjects.dsl.idObjectsDsl.impl.AbstractReferenceImpl
-     * @see com.idobjects.dsl.idObjectsDsl.impl.IdObjectsDslPackageImpl#getAbstractReference()
+     * @see com.idobjects.dsl.idObjectsDsl.impl.PersistenceImpl
+     * @see com.idobjects.dsl.idObjectsDsl.impl.IdObjectsDslPackageImpl#getPersistence()
      * @generated
      */
-    EClass ABSTRACT_REFERENCE = eINSTANCE.getAbstractReference();
+    EClass PERSISTENCE = eINSTANCE.getPersistence();
+
+    /**
+     * The meta object literal for the '<em><b>Persistence Package</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PERSISTENCE__PERSISTENCE_PACKAGE = eINSTANCE.getPersistence_PersistencePackage();
+
+    /**
+     * The meta object literal for the '{@link com.idobjects.dsl.idObjectsDsl.impl.PersistencePackageImpl <em>Persistence Package</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.idobjects.dsl.idObjectsDsl.impl.PersistencePackageImpl
+     * @see com.idobjects.dsl.idObjectsDsl.impl.IdObjectsDslPackageImpl#getPersistencePackage()
+     * @generated
+     */
+    EClass PERSISTENCE_PACKAGE = eINSTANCE.getPersistencePackage();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -681,7 +1003,93 @@ public interface IdObjectsDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ABSTRACT_REFERENCE__NAME = eINSTANCE.getAbstractReference_Name();
+    EAttribute PERSISTENCE_PACKAGE__NAME = eINSTANCE.getPersistencePackage_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Persistence Entities</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PERSISTENCE_PACKAGE__PERSISTENCE_ENTITIES = eINSTANCE.getPersistencePackage_PersistenceEntities();
+
+    /**
+     * The meta object literal for the '{@link com.idobjects.dsl.idObjectsDsl.impl.PersistenceEntityImpl <em>Persistence Entity</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.idobjects.dsl.idObjectsDsl.impl.PersistenceEntityImpl
+     * @see com.idobjects.dsl.idObjectsDsl.impl.IdObjectsDslPackageImpl#getPersistenceEntity()
+     * @generated
+     */
+    EClass PERSISTENCE_ENTITY = eINSTANCE.getPersistenceEntity();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PERSISTENCE_ENTITY__NAME = eINSTANCE.getPersistenceEntity_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Persistence Properties</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PERSISTENCE_ENTITY__PERSISTENCE_PROPERTIES = eINSTANCE.getPersistenceEntity_PersistenceProperties();
+
+    /**
+     * The meta object literal for the '{@link com.idobjects.dsl.idObjectsDsl.impl.PersistencePropertyImpl <em>Persistence Property</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.idobjects.dsl.idObjectsDsl.impl.PersistencePropertyImpl
+     * @see com.idobjects.dsl.idObjectsDsl.impl.IdObjectsDslPackageImpl#getPersistenceProperty()
+     * @generated
+     */
+    EClass PERSISTENCE_PROPERTY = eINSTANCE.getPersistenceProperty();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PERSISTENCE_PROPERTY__NAME = eINSTANCE.getPersistenceProperty_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Config</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PERSISTENCE_PROPERTY__CONFIG = eINSTANCE.getPersistenceProperty_Config();
+
+    /**
+     * The meta object literal for the '{@link com.idobjects.dsl.idObjectsDsl.impl.PersistencePropertyConfigImpl <em>Persistence Property Config</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.idobjects.dsl.idObjectsDsl.impl.PersistencePropertyConfigImpl
+     * @see com.idobjects.dsl.idObjectsDsl.impl.IdObjectsDslPackageImpl#getPersistencePropertyConfig()
+     * @generated
+     */
+    EClass PERSISTENCE_PROPERTY_CONFIG = eINSTANCE.getPersistencePropertyConfig();
+
+    /**
+     * The meta object literal for the '<em><b>Property Config Key</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PERSISTENCE_PROPERTY_CONFIG__PROPERTY_CONFIG_KEY = eINSTANCE.getPersistencePropertyConfig_PropertyConfigKey();
+
+    /**
+     * The meta object literal for the '<em><b>Property Config Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PERSISTENCE_PROPERTY_CONFIG__PROPERTY_CONFIG_VALUE = eINSTANCE.getPersistencePropertyConfig_PropertyConfigValue();
 
     /**
      * The meta object literal for the '{@link com.idobjects.dsl.idObjectsDsl.impl.EntityPropertyImpl <em>Entity Property</em>}' class.

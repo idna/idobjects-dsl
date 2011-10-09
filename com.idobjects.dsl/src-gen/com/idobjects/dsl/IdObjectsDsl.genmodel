@@ -10,7 +10,9 @@
   <genPackages prefix="IdObjectsDsl" basePackage="com.idobjects.dsl" disposableProviderFactory="true"
       ecorePackage="platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#/">
     <genClasses ecoreClass="platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//Model">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//Model/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//Model/packages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//Model/persistenceModel"/>
     </genClasses>
     <genClasses ecoreClass="platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//Package">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//Package/name"/>
@@ -18,7 +20,6 @@
     </genClasses>
     <genClasses ecoreClass="platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//Entity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//Entity/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//Entity/superEntity"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//Entity/properties"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//Entity/references"/>
     </genClasses>
@@ -28,8 +29,24 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//EntityReference/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//EntityReference/inverseName"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//AbstractReference">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//AbstractReference/name"/>
+    <genClasses ecoreClass="platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//Persistence">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//Persistence/persistencePackage"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//PersistencePackage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//PersistencePackage/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//PersistencePackage/persistenceEntities"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//PersistenceEntity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//PersistenceEntity/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//PersistenceEntity/persistenceProperties"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//PersistenceProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//PersistenceProperty/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//PersistenceProperty/config"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//PersistencePropertyConfig">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//PersistencePropertyConfig/propertyConfigKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//PersistencePropertyConfig/propertyConfigValue"/>
     </genClasses>
     <genClasses ecoreClass="platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//EntityProperty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//EntityProperty/propertyType"/>

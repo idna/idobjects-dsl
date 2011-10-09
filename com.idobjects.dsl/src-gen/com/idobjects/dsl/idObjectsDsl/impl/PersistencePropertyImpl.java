@@ -5,30 +5,41 @@
  */
 package com.idobjects.dsl.idObjectsDsl.impl;
 
-import com.idobjects.dsl.idObjectsDsl.AbstractReference;
 import com.idobjects.dsl.idObjectsDsl.IdObjectsDslPackage;
+import com.idobjects.dsl.idObjectsDsl.PersistenceProperty;
+import com.idobjects.dsl.idObjectsDsl.PersistencePropertyConfig;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Abstract Reference</b></em>'.
+ * An implementation of the model object '<em><b>Persistence Property</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.idobjects.dsl.idObjectsDsl.impl.AbstractReferenceImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.idobjects.dsl.idObjectsDsl.impl.PersistencePropertyImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.idobjects.dsl.idObjectsDsl.impl.PersistencePropertyImpl#getConfig <em>Config</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AbstractReferenceImpl extends MinimalEObjectImpl.Container implements AbstractReference
+public class PersistencePropertyImpl extends MinimalEObjectImpl.Container implements PersistenceProperty
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -51,11 +62,21 @@ public class AbstractReferenceImpl extends MinimalEObjectImpl.Container implemen
   protected String name = NAME_EDEFAULT;
 
   /**
+   * The cached value of the '{@link #getConfig() <em>Config</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConfig()
+   * @generated
+   * @ordered
+   */
+  protected EList<PersistencePropertyConfig> config;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AbstractReferenceImpl()
+  protected PersistencePropertyImpl()
   {
     super();
   }
@@ -68,7 +89,7 @@ public class AbstractReferenceImpl extends MinimalEObjectImpl.Container implemen
   @Override
   protected EClass eStaticClass()
   {
-    return IdObjectsDslPackage.Literals.ABSTRACT_REFERENCE;
+    return IdObjectsDslPackage.Literals.PERSISTENCE_PROPERTY;
   }
 
   /**
@@ -91,7 +112,37 @@ public class AbstractReferenceImpl extends MinimalEObjectImpl.Container implemen
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IdObjectsDslPackage.ABSTRACT_REFERENCE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, IdObjectsDslPackage.PERSISTENCE_PROPERTY__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<PersistencePropertyConfig> getConfig()
+  {
+    if (config == null)
+    {
+      config = new EObjectContainmentEList<PersistencePropertyConfig>(PersistencePropertyConfig.class, this, IdObjectsDslPackage.PERSISTENCE_PROPERTY__CONFIG);
+    }
+    return config;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case IdObjectsDslPackage.PERSISTENCE_PROPERTY__CONFIG:
+        return ((InternalEList<?>)getConfig()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -104,8 +155,10 @@ public class AbstractReferenceImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case IdObjectsDslPackage.ABSTRACT_REFERENCE__NAME:
+      case IdObjectsDslPackage.PERSISTENCE_PROPERTY__NAME:
         return getName();
+      case IdObjectsDslPackage.PERSISTENCE_PROPERTY__CONFIG:
+        return getConfig();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -115,13 +168,18 @@ public class AbstractReferenceImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case IdObjectsDslPackage.ABSTRACT_REFERENCE__NAME:
+      case IdObjectsDslPackage.PERSISTENCE_PROPERTY__NAME:
         setName((String)newValue);
+        return;
+      case IdObjectsDslPackage.PERSISTENCE_PROPERTY__CONFIG:
+        getConfig().clear();
+        getConfig().addAll((Collection<? extends PersistencePropertyConfig>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +195,11 @@ public class AbstractReferenceImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case IdObjectsDslPackage.ABSTRACT_REFERENCE__NAME:
+      case IdObjectsDslPackage.PERSISTENCE_PROPERTY__NAME:
         setName(NAME_EDEFAULT);
+        return;
+      case IdObjectsDslPackage.PERSISTENCE_PROPERTY__CONFIG:
+        getConfig().clear();
         return;
     }
     super.eUnset(featureID);
@@ -154,8 +215,10 @@ public class AbstractReferenceImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case IdObjectsDslPackage.ABSTRACT_REFERENCE__NAME:
+      case IdObjectsDslPackage.PERSISTENCE_PROPERTY__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case IdObjectsDslPackage.PERSISTENCE_PROPERTY__CONFIG:
+        return config != null && !config.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -177,4 +240,4 @@ public class AbstractReferenceImpl extends MinimalEObjectImpl.Container implemen
     return result.toString();
   }
 
-} //AbstractReferenceImpl
+} //PersistencePropertyImpl

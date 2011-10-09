@@ -5,10 +5,9 @@
  */
 package com.idobjects.dsl.idObjectsDsl.impl;
 
-import com.idobjects.dsl.idObjectsDsl.Entity;
-import com.idobjects.dsl.idObjectsDsl.EntityProperty;
-import com.idobjects.dsl.idObjectsDsl.EntityReference;
 import com.idobjects.dsl.idObjectsDsl.IdObjectsDslPackage;
+import com.idobjects.dsl.idObjectsDsl.PersistenceEntity;
+import com.idobjects.dsl.idObjectsDsl.PersistencePackage;
 
 import java.util.Collection;
 
@@ -28,20 +27,19 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Entity</b></em>'.
+ * An implementation of the model object '<em><b>Persistence Package</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.idobjects.dsl.idObjectsDsl.impl.EntityImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.idobjects.dsl.idObjectsDsl.impl.EntityImpl#getProperties <em>Properties</em>}</li>
- *   <li>{@link com.idobjects.dsl.idObjectsDsl.impl.EntityImpl#getReferences <em>References</em>}</li>
+ *   <li>{@link com.idobjects.dsl.idObjectsDsl.impl.PersistencePackageImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.idobjects.dsl.idObjectsDsl.impl.PersistencePackageImpl#getPersistenceEntities <em>Persistence Entities</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
+public class PersistencePackageImpl extends MinimalEObjectImpl.Container implements PersistencePackage
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -64,31 +62,21 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+   * The cached value of the '{@link #getPersistenceEntities() <em>Persistence Entities</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProperties()
+   * @see #getPersistenceEntities()
    * @generated
    * @ordered
    */
-  protected EList<EntityProperty> properties;
-
-  /**
-   * The cached value of the '{@link #getReferences() <em>References</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getReferences()
-   * @generated
-   * @ordered
-   */
-  protected EList<EntityReference> references;
+  protected EList<PersistenceEntity> persistenceEntities;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected EntityImpl()
+  protected PersistencePackageImpl()
   {
     super();
   }
@@ -101,7 +89,7 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
   @Override
   protected EClass eStaticClass()
   {
-    return IdObjectsDslPackage.Literals.ENTITY;
+    return IdObjectsDslPackage.Literals.PERSISTENCE_PACKAGE;
   }
 
   /**
@@ -124,7 +112,7 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, IdObjectsDslPackage.ENTITY__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, IdObjectsDslPackage.PERSISTENCE_PACKAGE__NAME, oldName, name));
   }
 
   /**
@@ -132,27 +120,13 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<EntityProperty> getProperties()
+  public EList<PersistenceEntity> getPersistenceEntities()
   {
-    if (properties == null)
+    if (persistenceEntities == null)
     {
-      properties = new EObjectContainmentEList<EntityProperty>(EntityProperty.class, this, IdObjectsDslPackage.ENTITY__PROPERTIES);
+      persistenceEntities = new EObjectContainmentEList<PersistenceEntity>(PersistenceEntity.class, this, IdObjectsDslPackage.PERSISTENCE_PACKAGE__PERSISTENCE_ENTITIES);
     }
-    return properties;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<EntityReference> getReferences()
-  {
-    if (references == null)
-    {
-      references = new EObjectContainmentEList<EntityReference>(EntityReference.class, this, IdObjectsDslPackage.ENTITY__REFERENCES);
-    }
-    return references;
+    return persistenceEntities;
   }
 
   /**
@@ -165,10 +139,8 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
   {
     switch (featureID)
     {
-      case IdObjectsDslPackage.ENTITY__PROPERTIES:
-        return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
-      case IdObjectsDslPackage.ENTITY__REFERENCES:
-        return ((InternalEList<?>)getReferences()).basicRemove(otherEnd, msgs);
+      case IdObjectsDslPackage.PERSISTENCE_PACKAGE__PERSISTENCE_ENTITIES:
+        return ((InternalEList<?>)getPersistenceEntities()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -183,12 +155,10 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
   {
     switch (featureID)
     {
-      case IdObjectsDslPackage.ENTITY__NAME:
+      case IdObjectsDslPackage.PERSISTENCE_PACKAGE__NAME:
         return getName();
-      case IdObjectsDslPackage.ENTITY__PROPERTIES:
-        return getProperties();
-      case IdObjectsDslPackage.ENTITY__REFERENCES:
-        return getReferences();
+      case IdObjectsDslPackage.PERSISTENCE_PACKAGE__PERSISTENCE_ENTITIES:
+        return getPersistenceEntities();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -204,16 +174,12 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
   {
     switch (featureID)
     {
-      case IdObjectsDslPackage.ENTITY__NAME:
+      case IdObjectsDslPackage.PERSISTENCE_PACKAGE__NAME:
         setName((String)newValue);
         return;
-      case IdObjectsDslPackage.ENTITY__PROPERTIES:
-        getProperties().clear();
-        getProperties().addAll((Collection<? extends EntityProperty>)newValue);
-        return;
-      case IdObjectsDslPackage.ENTITY__REFERENCES:
-        getReferences().clear();
-        getReferences().addAll((Collection<? extends EntityReference>)newValue);
+      case IdObjectsDslPackage.PERSISTENCE_PACKAGE__PERSISTENCE_ENTITIES:
+        getPersistenceEntities().clear();
+        getPersistenceEntities().addAll((Collection<? extends PersistenceEntity>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -229,14 +195,11 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
   {
     switch (featureID)
     {
-      case IdObjectsDslPackage.ENTITY__NAME:
+      case IdObjectsDslPackage.PERSISTENCE_PACKAGE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case IdObjectsDslPackage.ENTITY__PROPERTIES:
-        getProperties().clear();
-        return;
-      case IdObjectsDslPackage.ENTITY__REFERENCES:
-        getReferences().clear();
+      case IdObjectsDslPackage.PERSISTENCE_PACKAGE__PERSISTENCE_ENTITIES:
+        getPersistenceEntities().clear();
         return;
     }
     super.eUnset(featureID);
@@ -252,12 +215,10 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
   {
     switch (featureID)
     {
-      case IdObjectsDslPackage.ENTITY__NAME:
+      case IdObjectsDslPackage.PERSISTENCE_PACKAGE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case IdObjectsDslPackage.ENTITY__PROPERTIES:
-        return properties != null && !properties.isEmpty();
-      case IdObjectsDslPackage.ENTITY__REFERENCES:
-        return references != null && !references.isEmpty();
+      case IdObjectsDslPackage.PERSISTENCE_PACKAGE__PERSISTENCE_ENTITIES:
+        return persistenceEntities != null && !persistenceEntities.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -279,4 +240,4 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
     return result.toString();
   }
 
-} //EntityImpl
+} //PersistencePackageImpl

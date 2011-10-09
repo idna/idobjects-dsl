@@ -1,0 +1,6 @@
+«IMPORT idObjectsDsl»
+«EXTENSION  util»
+
+«DEFINE PersistenceEntity FOR Entity»
+
+«ENDDEFINE»

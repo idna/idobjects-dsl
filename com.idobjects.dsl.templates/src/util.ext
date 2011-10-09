@@ -83,6 +83,18 @@ Collection imports(Entity e):
  JAVA util.TemplateUtil.importsMD(com.idobjects.dsl.idObjectsDsl.Entity);
  
  String superClass(Entity e):
- JAVA util.TemplateUtil.superClass(com.idobjects.dsl.idObjectsDsl.Entity);
+ JAVA util.TemplateUtil.superClass(com.idobjects.dsl.idObjectsDsl.Entity); 
+ 
+ String modelMDFileName(Model m):
+  JAVA util.TemplateUtil.modelMDFileName(com.idobjects.dsl.idObjectsDsl.Model);
+  
+  String modelMDClassName(Model m):
+  JAVA util.TemplateUtil.modelMDClassName(com.idobjects.dsl.idObjectsDsl.Model);
+  
+  String modelMDPackageName(Model m):
+  JAVA util.TemplateUtil.modelMDPackageName(com.idobjects.dsl.idObjectsDsl.Model);
+  
+  
+  
  
  

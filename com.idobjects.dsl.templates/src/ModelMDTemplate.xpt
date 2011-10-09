@@ -1,0 +1,15 @@
+«IMPORT idObjectsDsl»
+«EXTENSION  util»
+
+«DEFINE ModelMD FOR Model»
+	«FILE modelMDFileName()»
+	package «modelMDPackageName()»;
+	
+	import com.idobjects.api.md.ModelMetadata;
+	
+	public class «modelMDClassName()» extends ModelMetadata{
+	
+	
+	}
+	«ENDFILE»
+«ENDDEFINE»

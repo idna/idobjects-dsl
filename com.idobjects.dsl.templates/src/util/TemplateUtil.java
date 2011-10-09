@@ -46,6 +46,26 @@ public class TemplateUtil{
         return packagePath + "/" + e.getName() + "MD.java";
     }
 
+    public String modelMDFileName( Model model ){
+        String modelName = model.getName();
+        String modelMDFileName = modelName.replace( ".", File.separator );
+        return modelMDFileName + "MD.java";
+    }
+
+    public String modelMDClassName( Model model ){
+        String modelName = model.getName();
+        int ix = modelName.lastIndexOf( "." );
+        if( ix == -1 ) return modelName;
+        return modelName.substring( ix + 1 ) + "MD";
+    }
+
+    public String modelMDPackageName( Model model ){
+        String modelName = model.getName();
+        int ix = modelName.lastIndexOf( "." );
+        if( ix == -1 ) return modelName;
+        return modelName.substring( 0, ix );
+    }
+
     public String propertyName( EntityProperty entityProperty ){
         return entityProperty.getName();
     }
@@ -248,8 +268,7 @@ public class TemplateUtil{
     }
 
     public String superClass( Entity e ){
-        if( e.getSuperEntity() == null ) return AbstractIdObject.class.getSimpleName();
-        return e.getSuperEntity().getName();
+        return AbstractIdObject.class.getSimpleName();
     }
 
 }
