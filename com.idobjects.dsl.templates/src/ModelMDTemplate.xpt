@@ -1,0 +1,37 @@
+«IMPORT idObjectsDsl»
+«EXTENSION  util»
+
+«DEFINE ModelMD FOR Model»
+«FILE modelMDFileName()»
+package «modelMDPackageName()»;
+	
+import com.idobjects.api.md.ModelMetadata;
+import java.util.List;
+import java.util.ArrayList;
+import com.idobjects.api.md.IdObjectMD;
+	
+public class «modelMDClassName()» extends ModelMetadata{
+		
+	private static final «modelMDClassName()» instance;
+
+	static{
+	     List<IdObjectMD> objects = new ArrayList<IdObjectMD>();
+	        
+	        «FOREACH idObjectsMDClasses() AS mdClass»
+        objects.add( «mdClass».instance());«ENDFOREACH»
+        
+        instance = new  «modelMDClassName()»( objects );
+    }
+
+    private «modelMDClassName()»( List<IdObjectMD> objects ){
+        super( objects );
+    }
+
+    public static «modelMDClassName()» instance(){
+        return instance;
+    }
+	
+	
+}
+	«ENDFILE»
+«ENDDEFINE»

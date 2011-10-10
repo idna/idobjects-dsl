@@ -3,15 +3,17 @@ grammar com.idobjects.dsl.IdObjectsDsl with org.eclipse.xtext.common.Terminals
 generate idObjectsDsl "http://www.idobjects.com/IdObjectsDsl"
 
 Model:
-	packages+=Package*;
-
+	'model-id' '=' name=PackageName	
+	packages+=Package*
+	(persistenceModel=Persistence)?
+;
 Package:
 	'package' name=PackageName '{'
 	entities+=Entity*
 	'}';
 
 Entity:
-	'entity' name=ID ('extends' superEntity=[Entity])? '{'
+	'entity' name=ID '{'
 	(properties+=EntityProperty | references+=EntityReference)*
 	'}';
 
@@ -23,8 +25,30 @@ EntityReference:
 	('[inverse=' inverseName=ID ']')?
 	';';
 
-AbstractReference:
-	name=ID;
+Persistence: 'persistence' '{'
+	persistencePackage+=PersistencePackage+
+	'}'
+	;
+
+PersistencePackage:
+	'package' name=PackageName '{'
+	persistenceEntities+=PersistenceEntity+
+	'}';
+
+PersistenceEntity:
+	'entity' name=ID '{'
+	persistenceProperties+=PersistenceProperty+
+	'}';
+
+PersistenceProperty:
+	name=ID '('
+		config += PersistencePropertyConfig ( ',' config +=PersistencePropertyConfig)*
+	')';
+	
+PersistencePropertyConfig:
+	propertyConfigKey=ID '=' propertyConfigValue = STRING
+;
+
 
 EntityProperty:
 	propertyType=BasicType name=ID ';';

@@ -4,8 +4,11 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="idObjectsDsl"
     nsURI="http://www.idobjects.com/IdObjectsDsl" nsPrefix="idObjectsDsl">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="packages" upperBound="-1"
         eType="ecore:EClass platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//Package"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="persistenceModel" eType="ecore:EClass platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//Persistence"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Package">
@@ -16,7 +19,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Entity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="superEntity" eType="ecore:EClass platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//Entity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="ecore:EClass platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//EntityProperty"
         containment="true"/>
@@ -30,8 +32,32 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inverseName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractReference">
+  <eClassifiers xsi:type="ecore:EClass" name="Persistence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="persistencePackage" upperBound="-1"
+        eType="ecore:EClass platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//PersistencePackage"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PersistencePackage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="persistenceEntities" upperBound="-1"
+        eType="ecore:EClass platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//PersistenceEntity"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PersistenceEntity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="persistenceProperties"
+        upperBound="-1" eType="ecore:EClass platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//PersistenceProperty"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PersistenceProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="config" upperBound="-1"
+        eType="ecore:EClass platform:/resource/com.idobjects.dsl/src-gen/com/idobjects/dsl/IdObjectsDsl.ecore#//PersistencePropertyConfig"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PersistencePropertyConfig">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="propertyConfigKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="propertyConfigValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EntityProperty">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="propertyType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

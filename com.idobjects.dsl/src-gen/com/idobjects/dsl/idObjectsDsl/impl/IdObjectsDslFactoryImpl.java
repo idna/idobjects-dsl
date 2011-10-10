@@ -5,13 +5,17 @@
  */
 package com.idobjects.dsl.idObjectsDsl.impl;
 
-import com.idobjects.dsl.idObjectsDsl.AbstractReference;
 import com.idobjects.dsl.idObjectsDsl.Entity;
 import com.idobjects.dsl.idObjectsDsl.EntityProperty;
 import com.idobjects.dsl.idObjectsDsl.EntityReference;
 import com.idobjects.dsl.idObjectsDsl.IdObjectsDslFactory;
 import com.idobjects.dsl.idObjectsDsl.IdObjectsDslPackage;
 import com.idobjects.dsl.idObjectsDsl.Model;
+import com.idobjects.dsl.idObjectsDsl.Persistence;
+import com.idobjects.dsl.idObjectsDsl.PersistenceEntity;
+import com.idobjects.dsl.idObjectsDsl.PersistencePackage;
+import com.idobjects.dsl.idObjectsDsl.PersistenceProperty;
+import com.idobjects.dsl.idObjectsDsl.PersistencePropertyConfig;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -77,7 +81,11 @@ public class IdObjectsDslFactoryImpl extends EFactoryImpl implements IdObjectsDs
       case IdObjectsDslPackage.PACKAGE: return createPackage();
       case IdObjectsDslPackage.ENTITY: return createEntity();
       case IdObjectsDslPackage.ENTITY_REFERENCE: return createEntityReference();
-      case IdObjectsDslPackage.ABSTRACT_REFERENCE: return createAbstractReference();
+      case IdObjectsDslPackage.PERSISTENCE: return createPersistence();
+      case IdObjectsDslPackage.PERSISTENCE_PACKAGE: return createPersistencePackage();
+      case IdObjectsDslPackage.PERSISTENCE_ENTITY: return createPersistenceEntity();
+      case IdObjectsDslPackage.PERSISTENCE_PROPERTY: return createPersistenceProperty();
+      case IdObjectsDslPackage.PERSISTENCE_PROPERTY_CONFIG: return createPersistencePropertyConfig();
       case IdObjectsDslPackage.ENTITY_PROPERTY: return createEntityProperty();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -133,10 +141,54 @@ public class IdObjectsDslFactoryImpl extends EFactoryImpl implements IdObjectsDs
    * <!-- end-user-doc -->
    * @generated
    */
-  public AbstractReference createAbstractReference()
+  public Persistence createPersistence()
   {
-    AbstractReferenceImpl abstractReference = new AbstractReferenceImpl();
-    return abstractReference;
+    PersistenceImpl persistence = new PersistenceImpl();
+    return persistence;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PersistencePackage createPersistencePackage()
+  {
+    PersistencePackageImpl persistencePackage = new PersistencePackageImpl();
+    return persistencePackage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PersistenceEntity createPersistenceEntity()
+  {
+    PersistenceEntityImpl persistenceEntity = new PersistenceEntityImpl();
+    return persistenceEntity;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PersistenceProperty createPersistenceProperty()
+  {
+    PersistencePropertyImpl persistenceProperty = new PersistencePropertyImpl();
+    return persistenceProperty;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PersistencePropertyConfig createPersistencePropertyConfig()
+  {
+    PersistencePropertyConfigImpl persistencePropertyConfig = new PersistencePropertyConfigImpl();
+    return persistencePropertyConfig;
   }
 
   /**

@@ -5,12 +5,16 @@
  */
 package com.idobjects.dsl.idObjectsDsl.util;
 
-import com.idobjects.dsl.idObjectsDsl.AbstractReference;
 import com.idobjects.dsl.idObjectsDsl.Entity;
 import com.idobjects.dsl.idObjectsDsl.EntityProperty;
 import com.idobjects.dsl.idObjectsDsl.EntityReference;
 import com.idobjects.dsl.idObjectsDsl.IdObjectsDslPackage;
 import com.idobjects.dsl.idObjectsDsl.Model;
+import com.idobjects.dsl.idObjectsDsl.Persistence;
+import com.idobjects.dsl.idObjectsDsl.PersistenceEntity;
+import com.idobjects.dsl.idObjectsDsl.PersistencePackage;
+import com.idobjects.dsl.idObjectsDsl.PersistenceProperty;
+import com.idobjects.dsl.idObjectsDsl.PersistencePropertyConfig;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -103,9 +107,29 @@ public class IdObjectsDslAdapterFactory extends AdapterFactoryImpl
         return createEntityReferenceAdapter();
       }
       @Override
-      public Adapter caseAbstractReference(AbstractReference object)
+      public Adapter casePersistence(Persistence object)
       {
-        return createAbstractReferenceAdapter();
+        return createPersistenceAdapter();
+      }
+      @Override
+      public Adapter casePersistencePackage(PersistencePackage object)
+      {
+        return createPersistencePackageAdapter();
+      }
+      @Override
+      public Adapter casePersistenceEntity(PersistenceEntity object)
+      {
+        return createPersistenceEntityAdapter();
+      }
+      @Override
+      public Adapter casePersistenceProperty(PersistenceProperty object)
+      {
+        return createPersistencePropertyAdapter();
+      }
+      @Override
+      public Adapter casePersistencePropertyConfig(PersistencePropertyConfig object)
+      {
+        return createPersistencePropertyConfigAdapter();
       }
       @Override
       public Adapter caseEntityProperty(EntityProperty object)
@@ -195,16 +219,76 @@ public class IdObjectsDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.idobjects.dsl.idObjectsDsl.AbstractReference <em>Abstract Reference</em>}'.
+   * Creates a new adapter for an object of class '{@link com.idobjects.dsl.idObjectsDsl.Persistence <em>Persistence</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.idobjects.dsl.idObjectsDsl.AbstractReference
+   * @see com.idobjects.dsl.idObjectsDsl.Persistence
    * @generated
    */
-  public Adapter createAbstractReferenceAdapter()
+  public Adapter createPersistenceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.idobjects.dsl.idObjectsDsl.PersistencePackage <em>Persistence Package</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.idobjects.dsl.idObjectsDsl.PersistencePackage
+   * @generated
+   */
+  public Adapter createPersistencePackageAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.idobjects.dsl.idObjectsDsl.PersistenceEntity <em>Persistence Entity</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.idobjects.dsl.idObjectsDsl.PersistenceEntity
+   * @generated
+   */
+  public Adapter createPersistenceEntityAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.idobjects.dsl.idObjectsDsl.PersistenceProperty <em>Persistence Property</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.idobjects.dsl.idObjectsDsl.PersistenceProperty
+   * @generated
+   */
+  public Adapter createPersistencePropertyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.idobjects.dsl.idObjectsDsl.PersistencePropertyConfig <em>Persistence Property Config</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.idobjects.dsl.idObjectsDsl.PersistencePropertyConfig
+   * @generated
+   */
+  public Adapter createPersistencePropertyConfigAdapter()
   {
     return null;
   }

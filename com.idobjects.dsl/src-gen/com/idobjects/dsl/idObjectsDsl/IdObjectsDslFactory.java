@@ -62,13 +62,49 @@ public interface IdObjectsDslFactory extends EFactory
   EntityReference createEntityReference();
 
   /**
-   * Returns a new object of class '<em>Abstract Reference</em>'.
+   * Returns a new object of class '<em>Persistence</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstract Reference</em>'.
+   * @return a new object of class '<em>Persistence</em>'.
    * @generated
    */
-  AbstractReference createAbstractReference();
+  Persistence createPersistence();
+
+  /**
+   * Returns a new object of class '<em>Persistence Package</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Persistence Package</em>'.
+   * @generated
+   */
+  PersistencePackage createPersistencePackage();
+
+  /**
+   * Returns a new object of class '<em>Persistence Entity</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Persistence Entity</em>'.
+   * @generated
+   */
+  PersistenceEntity createPersistenceEntity();
+
+  /**
+   * Returns a new object of class '<em>Persistence Property</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Persistence Property</em>'.
+   * @generated
+   */
+  PersistenceProperty createPersistenceProperty();
+
+  /**
+   * Returns a new object of class '<em>Persistence Property Config</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Persistence Property Config</em>'.
+   * @generated
+   */
+  PersistencePropertyConfig createPersistencePropertyConfig();
 
   /**
    * Returns a new object of class '<em>Entity Property</em>'.

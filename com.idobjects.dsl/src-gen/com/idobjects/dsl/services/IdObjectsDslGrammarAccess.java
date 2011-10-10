@@ -19,18 +19,46 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Model");
-		private final Assignment cPackagesAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cPackagesPackageParserRuleCall_0 = (RuleCall)cPackagesAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cModelIdKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNamePackageNameParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Assignment cPackagesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cPackagesPackageParserRuleCall_3_0 = (RuleCall)cPackagesAssignment_3.eContents().get(0);
+		private final Assignment cPersistenceModelAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cPersistenceModelPersistenceParserRuleCall_4_0 = (RuleCall)cPersistenceModelAssignment_4.eContents().get(0);
 		
 		//Model:
-		//	packages+=Package*;
+		//	"model-id" "=" name=PackageName packages+=Package* persistenceModel=Persistence?;
 		public ParserRule getRule() { return rule; }
 
+		//"model-id" "=" name=PackageName packages+=Package* persistenceModel=Persistence?
+		public Group getGroup() { return cGroup; }
+
+		//"model-id"
+		public Keyword getModelIdKeyword_0() { return cModelIdKeyword_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+
+		//name=PackageName
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+
+		//PackageName
+		public RuleCall getNamePackageNameParserRuleCall_2_0() { return cNamePackageNameParserRuleCall_2_0; }
+
 		//packages+=Package*
-		public Assignment getPackagesAssignment() { return cPackagesAssignment; }
+		public Assignment getPackagesAssignment_3() { return cPackagesAssignment_3; }
 
 		//Package
-		public RuleCall getPackagesPackageParserRuleCall_0() { return cPackagesPackageParserRuleCall_0; }
+		public RuleCall getPackagesPackageParserRuleCall_3_0() { return cPackagesPackageParserRuleCall_3_0; }
+
+		//persistenceModel=Persistence?
+		public Assignment getPersistenceModelAssignment_4() { return cPersistenceModelAssignment_4; }
+
+		//Persistence
+		public RuleCall getPersistenceModelPersistenceParserRuleCall_4_0() { return cPersistenceModelPersistenceParserRuleCall_4_0; }
 	}
 
 	public class PackageElements extends AbstractParserRuleElementFinder {
@@ -79,25 +107,19 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEntityKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cExtendsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cSuperEntityAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cSuperEntityEntityCrossReference_2_1_0 = (CrossReference)cSuperEntityAssignment_2_1.eContents().get(0);
-		private final RuleCall cSuperEntityEntityIDTerminalRuleCall_2_1_0_1 = (RuleCall)cSuperEntityEntityCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cPropertiesAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final RuleCall cPropertiesEntityPropertyParserRuleCall_4_0_0 = (RuleCall)cPropertiesAssignment_4_0.eContents().get(0);
-		private final Assignment cReferencesAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final RuleCall cReferencesEntityReferenceParserRuleCall_4_1_0 = (RuleCall)cReferencesAssignment_4_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Assignment cPropertiesAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
+		private final RuleCall cPropertiesEntityPropertyParserRuleCall_3_0_0 = (RuleCall)cPropertiesAssignment_3_0.eContents().get(0);
+		private final Assignment cReferencesAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
+		private final RuleCall cReferencesEntityReferenceParserRuleCall_3_1_0 = (RuleCall)cReferencesAssignment_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Entity:
-		//	"entity" name=ID ("extends" superEntity=[Entity])? "{" (properties+=EntityProperty | references+=EntityReference)*
-		//	"}";
+		//	"entity" name=ID "{" (properties+=EntityProperty | references+=EntityReference)* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"entity" name=ID ("extends" superEntity=[Entity])? "{" (properties+=EntityProperty | references+=EntityReference)* "}"
+		//"entity" name=ID "{" (properties+=EntityProperty | references+=EntityReference)* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"entity"
@@ -109,41 +131,26 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
-		//("extends" superEntity=[Entity])?
-		public Group getGroup_2() { return cGroup_2; }
-
-		//"extends"
-		public Keyword getExtendsKeyword_2_0() { return cExtendsKeyword_2_0; }
-
-		//superEntity=[Entity]
-		public Assignment getSuperEntityAssignment_2_1() { return cSuperEntityAssignment_2_1; }
-
-		//[Entity]
-		public CrossReference getSuperEntityEntityCrossReference_2_1_0() { return cSuperEntityEntityCrossReference_2_1_0; }
-
-		//ID
-		public RuleCall getSuperEntityEntityIDTerminalRuleCall_2_1_0_1() { return cSuperEntityEntityIDTerminalRuleCall_2_1_0_1; }
-
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
 		//(properties+=EntityProperty | references+=EntityReference)*
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
 
 		//properties+=EntityProperty
-		public Assignment getPropertiesAssignment_4_0() { return cPropertiesAssignment_4_0; }
+		public Assignment getPropertiesAssignment_3_0() { return cPropertiesAssignment_3_0; }
 
 		//EntityProperty
-		public RuleCall getPropertiesEntityPropertyParserRuleCall_4_0_0() { return cPropertiesEntityPropertyParserRuleCall_4_0_0; }
+		public RuleCall getPropertiesEntityPropertyParserRuleCall_3_0_0() { return cPropertiesEntityPropertyParserRuleCall_3_0_0; }
 
 		//references+=EntityReference
-		public Assignment getReferencesAssignment_4_1() { return cReferencesAssignment_4_1; }
+		public Assignment getReferencesAssignment_3_1() { return cReferencesAssignment_3_1; }
 
 		//EntityReference
-		public RuleCall getReferencesEntityReferenceParserRuleCall_4_1_0() { return cReferencesEntityReferenceParserRuleCall_4_1_0; }
+		public RuleCall getReferencesEntityReferenceParserRuleCall_3_1_0() { return cReferencesEntityReferenceParserRuleCall_3_1_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 
 	public class EntityReferenceElements extends AbstractParserRuleElementFinder {
@@ -230,20 +237,200 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 	}
 
-	public class AbstractReferenceElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AbstractReference");
-		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+	public class PersistenceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Persistence");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPersistenceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cPersistencePackageAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cPersistencePackagePersistencePackageParserRuleCall_2_0 = (RuleCall)cPersistencePackageAssignment_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//AbstractReference:
-		//	name=ID;
+		//Persistence:
+		//	"persistence" "{" persistencePackage+=PersistencePackage+ "}";
 		public ParserRule getRule() { return rule; }
 
+		//"persistence" "{" persistencePackage+=PersistencePackage+ "}"
+		public Group getGroup() { return cGroup; }
+
+		//"persistence"
+		public Keyword getPersistenceKeyword_0() { return cPersistenceKeyword_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+
+		//persistencePackage+=PersistencePackage+
+		public Assignment getPersistencePackageAssignment_2() { return cPersistencePackageAssignment_2; }
+
+		//PersistencePackage
+		public RuleCall getPersistencePackagePersistencePackageParserRuleCall_2_0() { return cPersistencePackagePersistencePackageParserRuleCall_2_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+	}
+
+	public class PersistencePackageElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PersistencePackage");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPackageKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNamePackageNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cPersistenceEntitiesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cPersistenceEntitiesPersistenceEntityParserRuleCall_3_0 = (RuleCall)cPersistenceEntitiesAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//PersistencePackage:
+		//	"package" name=PackageName "{" persistenceEntities+=PersistenceEntity+ "}";
+		public ParserRule getRule() { return rule; }
+
+		//"package" name=PackageName "{" persistenceEntities+=PersistenceEntity+ "}"
+		public Group getGroup() { return cGroup; }
+
+		//"package"
+		public Keyword getPackageKeyword_0() { return cPackageKeyword_0; }
+
+		//name=PackageName
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//PackageName
+		public RuleCall getNamePackageNameParserRuleCall_1_0() { return cNamePackageNameParserRuleCall_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//persistenceEntities+=PersistenceEntity+
+		public Assignment getPersistenceEntitiesAssignment_3() { return cPersistenceEntitiesAssignment_3; }
+
+		//PersistenceEntity
+		public RuleCall getPersistenceEntitiesPersistenceEntityParserRuleCall_3_0() { return cPersistenceEntitiesPersistenceEntityParserRuleCall_3_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+
+	public class PersistenceEntityElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PersistenceEntity");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cEntityKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cPersistencePropertiesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cPersistencePropertiesPersistencePropertyParserRuleCall_3_0 = (RuleCall)cPersistencePropertiesAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//PersistenceEntity:
+		//	"entity" name=ID "{" persistenceProperties+=PersistenceProperty+ "}";
+		public ParserRule getRule() { return rule; }
+
+		//"entity" name=ID "{" persistenceProperties+=PersistenceProperty+ "}"
+		public Group getGroup() { return cGroup; }
+
+		//"entity"
+		public Keyword getEntityKeyword_0() { return cEntityKeyword_0; }
+
 		//name=ID
-		public Assignment getNameAssignment() { return cNameAssignment; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//persistenceProperties+=PersistenceProperty+
+		public Assignment getPersistencePropertiesAssignment_3() { return cPersistencePropertiesAssignment_3; }
+
+		//PersistenceProperty
+		public RuleCall getPersistencePropertiesPersistencePropertyParserRuleCall_3_0() { return cPersistencePropertiesPersistencePropertyParserRuleCall_3_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+
+	public class PersistencePropertyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PersistenceProperty");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cConfigAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cConfigPersistencePropertyConfigParserRuleCall_2_0 = (RuleCall)cConfigAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cConfigAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cConfigPersistencePropertyConfigParserRuleCall_3_1_0 = (RuleCall)cConfigAssignment_3_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//PersistenceProperty:
+		//	name=ID "(" config+=PersistencePropertyConfig ("," config+=PersistencePropertyConfig)* ")";
+		public ParserRule getRule() { return rule; }
+
+		//name=ID "(" config+=PersistencePropertyConfig ("," config+=PersistencePropertyConfig)* ")"
+		public Group getGroup() { return cGroup; }
+
+		//name=ID
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+
+		//config+=PersistencePropertyConfig
+		public Assignment getConfigAssignment_2() { return cConfigAssignment_2; }
+
+		//PersistencePropertyConfig
+		public RuleCall getConfigPersistencePropertyConfigParserRuleCall_2_0() { return cConfigPersistencePropertyConfigParserRuleCall_2_0; }
+
+		//("," config+=PersistencePropertyConfig)*
+		public Group getGroup_3() { return cGroup_3; }
+
+		//","
+		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
+
+		//config+=PersistencePropertyConfig
+		public Assignment getConfigAssignment_3_1() { return cConfigAssignment_3_1; }
+
+		//PersistencePropertyConfig
+		public RuleCall getConfigPersistencePropertyConfigParserRuleCall_3_1_0() { return cConfigPersistencePropertyConfigParserRuleCall_3_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+	}
+
+	public class PersistencePropertyConfigElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PersistencePropertyConfig");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cPropertyConfigKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cPropertyConfigKeyIDTerminalRuleCall_0_0 = (RuleCall)cPropertyConfigKeyAssignment_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cPropertyConfigValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cPropertyConfigValueSTRINGTerminalRuleCall_2_0 = (RuleCall)cPropertyConfigValueAssignment_2.eContents().get(0);
+		
+		//PersistencePropertyConfig:
+		//	propertyConfigKey=ID "=" propertyConfigValue=STRING;
+		public ParserRule getRule() { return rule; }
+
+		//propertyConfigKey=ID "=" propertyConfigValue=STRING
+		public Group getGroup() { return cGroup; }
+
+		//propertyConfigKey=ID
+		public Assignment getPropertyConfigKeyAssignment_0() { return cPropertyConfigKeyAssignment_0; }
+
+		//ID
+		public RuleCall getPropertyConfigKeyIDTerminalRuleCall_0_0() { return cPropertyConfigKeyIDTerminalRuleCall_0_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+
+		//propertyConfigValue=STRING
+		public Assignment getPropertyConfigValueAssignment_2() { return cPropertyConfigValueAssignment_2; }
+
+		//STRING
+		public RuleCall getPropertyConfigValueSTRINGTerminalRuleCall_2_0() { return cPropertyConfigValueSTRINGTerminalRuleCall_2_0; }
 	}
 
 	public class EntityPropertyElements extends AbstractParserRuleElementFinder {
@@ -459,7 +646,11 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 	private PackageElements pPackage;
 	private EntityElements pEntity;
 	private EntityReferenceElements pEntityReference;
-	private AbstractReferenceElements pAbstractReference;
+	private PersistenceElements pPersistence;
+	private PersistencePackageElements pPersistencePackage;
+	private PersistenceEntityElements pPersistenceEntity;
+	private PersistencePropertyElements pPersistenceProperty;
+	private PersistencePropertyConfigElements pPersistencePropertyConfig;
 	private EntityPropertyElements pEntityProperty;
 	private PackageNameElements pPackageName;
 	private BasicTypeElements pBasicType;
@@ -490,7 +681,7 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	packages+=Package*;
+	//	"model-id" "=" name=PackageName packages+=Package* persistenceModel=Persistence?;
 	public ModelElements getModelAccess() {
 		return (pModel != null) ? pModel : (pModel = new ModelElements());
 	}
@@ -510,8 +701,7 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Entity:
-	//	"entity" name=ID ("extends" superEntity=[Entity])? "{" (properties+=EntityProperty | references+=EntityReference)*
-	//	"}";
+	//	"entity" name=ID "{" (properties+=EntityProperty | references+=EntityReference)* "}";
 	public EntityElements getEntityAccess() {
 		return (pEntity != null) ? pEntity : (pEntity = new EntityElements());
 	}
@@ -530,14 +720,54 @@ public class IdObjectsDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getEntityReferenceAccess().getRule();
 	}
 
-	//AbstractReference:
-	//	name=ID;
-	public AbstractReferenceElements getAbstractReferenceAccess() {
-		return (pAbstractReference != null) ? pAbstractReference : (pAbstractReference = new AbstractReferenceElements());
+	//Persistence:
+	//	"persistence" "{" persistencePackage+=PersistencePackage+ "}";
+	public PersistenceElements getPersistenceAccess() {
+		return (pPersistence != null) ? pPersistence : (pPersistence = new PersistenceElements());
 	}
 	
-	public ParserRule getAbstractReferenceRule() {
-		return getAbstractReferenceAccess().getRule();
+	public ParserRule getPersistenceRule() {
+		return getPersistenceAccess().getRule();
+	}
+
+	//PersistencePackage:
+	//	"package" name=PackageName "{" persistenceEntities+=PersistenceEntity+ "}";
+	public PersistencePackageElements getPersistencePackageAccess() {
+		return (pPersistencePackage != null) ? pPersistencePackage : (pPersistencePackage = new PersistencePackageElements());
+	}
+	
+	public ParserRule getPersistencePackageRule() {
+		return getPersistencePackageAccess().getRule();
+	}
+
+	//PersistenceEntity:
+	//	"entity" name=ID "{" persistenceProperties+=PersistenceProperty+ "}";
+	public PersistenceEntityElements getPersistenceEntityAccess() {
+		return (pPersistenceEntity != null) ? pPersistenceEntity : (pPersistenceEntity = new PersistenceEntityElements());
+	}
+	
+	public ParserRule getPersistenceEntityRule() {
+		return getPersistenceEntityAccess().getRule();
+	}
+
+	//PersistenceProperty:
+	//	name=ID "(" config+=PersistencePropertyConfig ("," config+=PersistencePropertyConfig)* ")";
+	public PersistencePropertyElements getPersistencePropertyAccess() {
+		return (pPersistenceProperty != null) ? pPersistenceProperty : (pPersistenceProperty = new PersistencePropertyElements());
+	}
+	
+	public ParserRule getPersistencePropertyRule() {
+		return getPersistencePropertyAccess().getRule();
+	}
+
+	//PersistencePropertyConfig:
+	//	propertyConfigKey=ID "=" propertyConfigValue=STRING;
+	public PersistencePropertyConfigElements getPersistencePropertyConfigAccess() {
+		return (pPersistencePropertyConfig != null) ? pPersistencePropertyConfig : (pPersistencePropertyConfig = new PersistencePropertyConfigElements());
+	}
+	
+	public ParserRule getPersistencePropertyConfigRule() {
+		return getPersistencePropertyConfigAccess().getRule();
 	}
 
 	//EntityProperty:

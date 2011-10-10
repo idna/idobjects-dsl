@@ -46,7 +46,7 @@
 		    }
 		
 		    private «name»MD(){
-		        super( «name».class.getName(), PROPERTIES, REFERENCES );
+		        super( «name».class, PROPERTIES, REFERENCES );
 		    }
 		
 		}  
