@@ -48,6 +48,12 @@
 		    private «name»MD(){
 		        super( «name».class, PROPERTIES, REFERENCES );
 		    }
+		    
+		    
+		    public  «name» createNewIdObject( ModelScope modelScope, ObjectIdentifier objectId){
+		    	return new «name»(modelScope,objectId);
+		    }
+		    
 		
 		}  
 	

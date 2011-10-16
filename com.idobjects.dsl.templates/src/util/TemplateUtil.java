@@ -257,6 +257,8 @@ public class TemplateUtil{
         result.add( "java.util.List" );
         result.add( "java.util.ArrayList" );
 
+        result.add( "com.idobjects.api.ModelScope" );
+        result.add( "com.idobjects.api.ObjectIdentifier" );
         result.add( "com.idobjects.api.md.IdObjectMD" );
         result.add( "com.idobjects.api.md.IdObjectPropertyMD" );
         result.add( "com.idobjects.api.md.IdObjectReferenceMD" );
@@ -270,12 +272,12 @@ public class TemplateUtil{
     public String superClass( Entity e ){
         return AbstractIdObject.class.getSimpleName();
     }
-    
-    public List<String> idObjectsMDClasses(Model model){
+
+    public List<String> idObjectsMDClasses( Model model ){
         EList<Package> packages = model.getPackages();
         List<String> result = new ArrayList<String>();
-        for(Package pkg : packages){
-            for(Entity entity : pkg.getEntities()){
+        for( Package pkg : packages ){
+            for( Entity entity : pkg.getEntities() ){
                 result.add( entity.getName() + "MD" );
             }
         }
